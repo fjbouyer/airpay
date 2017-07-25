@@ -38,24 +38,15 @@ ActiveRecord::Schema.define(version: 20170724171729) do
     t.index ["product_id"], name: "index_order_products_on_product_id", using: :btree
   end
 
-  create_table "order_reservations", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "reservation_id"
-    t.integer  "order_id"
+    t.string   "status"
     t.integer  "quantity"
     t.float    "total_price_excl_vat"
     t.float    "vat_rate"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["order_id"], name: "index_order_reservations_on_order_id", using: :btree
-    t.index ["reservation_id"], name: "index_order_reservations_on_reservation_id", using: :btree
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "reservation_id"
-    t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
     t.index ["reservation_id"], name: "index_orders_on_reservation_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -121,8 +112,6 @@ ActiveRecord::Schema.define(version: 20170724171729) do
   add_foreign_key "messages", "users"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
-  add_foreign_key "order_reservations", "orders"
-  add_foreign_key "order_reservations", "reservations"
   add_foreign_key "orders", "reservations"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_categories"
