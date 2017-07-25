@@ -1,0 +1,15 @@
+<% content_for :title, "Airpay - Mes reservations" %>
+
+<div class="container text-center">
+  <%= render 'account/tab-menu', reservations_class: "tab active" %>
+</div>
+
+<div class="container text-center">
+  <div class="tab-content" id="reservations">
+    <h2>Welcome <%= "#{current_user.first_name} #{current_user.last_name}" %></h2>
+    <p>This is mes reservations.</p>
+  </div>
+</div>
+
+<!-- To activate if we can do everything on time before, code in js file commented as well -->
+<!-- <%= javascript_include_tag 'tabs' %> -->
