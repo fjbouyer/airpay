@@ -29,29 +29,29 @@
         </form>
       </div>
       <div class="search-result">
-       <% if @reservations %>
-       <%= @reservations %>
-       <% end %>
-     </div>
+        <p>Hello</p>
+
+
+      </div>
 
 
 
-     <div class="text-center" id="loadBannerVideoSpinner" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 4px; display: none; margin-top: 20px;">
-      <h5 class="text-thin text-primary">Loading AirPay... <i class="fa fa-circle-o-notch fa-spin"></i></h5>
+      <div class="text-center" id="loadBannerVideoSpinner" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 4px; display: none; margin-top: 20px;">
+        <h5 class="text-thin text-primary">Loading AirPay... <i class="fa fa-circle-o-notch fa-spin"></i></h5>
+      </div>
+
+    </div>
+
+    <div class="filter"></div>
+    <video autoplay loop class="fillWidth">
+      <source src="../assets/Matkot.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      <source src="../assets/Matkot.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <div class="poster hidden">
+      <%= image_tag "Matkot.jpg" %>
     </div>
 
   </div>
-
-  <div class="filter"></div>
-  <video autoplay loop class="fillWidth">
-    <source src="../assets/Matkot.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-    <source src="../assets/Matkot.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-  </video>
-  <div class="poster hidden">
-    <%= image_tag "Matkot.jpg" %>
-  </div>
-
-</div>
 
 </div>
 

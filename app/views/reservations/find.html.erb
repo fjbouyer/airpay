@@ -1,0 +1,9 @@
+
+<div>
+   <% @reservations.each do |reservation| %>
+   <%= reservation.user.last_name.capitalize %>
+   <%= reservation.user.first_name.capitalize %>
+   <%= reservation.sport_category.name %>
+   <%= reservation.date %>
+   <% end %>
+</div>

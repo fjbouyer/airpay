@@ -5,7 +5,6 @@ class ReservationsController < ApplicationController
     @sport_category = SportCategory.find(params[:reservation][:sport_category])
     @date = params[:reservation][:date]
     @reservations = Reservation.where(user_id: @user_id, sport_category_id: @sport_category, date: @date)
-    redirect_to root_path
   end
 
 

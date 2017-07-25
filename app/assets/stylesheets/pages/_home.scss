@@ -2,6 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
  .video-container .title-container {
   z-index: 1000;
   position: relative;
@@ -32,10 +33,13 @@
 }
 
 .search-result {
+  z-index: 1000;
+  color:white;
+  background-color: $gray;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 100px;
+  margin: 0;
 }
 
 #container-searchbar {
