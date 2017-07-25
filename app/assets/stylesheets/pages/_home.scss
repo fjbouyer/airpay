@@ -2,3 +2,83 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+ .video-container .title-container {
+  z-index: 1000;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.title-container .headline {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+  align-items: top;
+
+}
+
+
+.searchbar-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.searchbar-background {
+  background-color: $gray;
+  border-radius: $border-radius-large;
+  padding: 3px;
+}
+
+.search-result {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+}
+
+#container-searchbar {
+  width: auto;
+}
+
+.banner-home {
+  background-size: cover;
+  height: 500px;
+}
+
+.banner-home-content h3 {
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: bolder;
+  color: white;
+  margin-top: 0;
+  padding-top: 50px
+}
+
+.banner-home-content p {
+  margin-top: 30px;
+  font-size: 17px;
+  line-height: 20px;
+  color: white;
+}
+
+.datepicker {
+
+}
+
+.headline .title h1 {
+  font-weight: bolder;
+  font-size: 65px;
+  letter-spacing: 10px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 2px $gray;
+}
+
+.headline .title h3 {
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: .1px;
+  line-height: 1.1;
+  text-shadow: 1px 1px 1px $gray;
+}

@@ -1,2 +1,94 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage-hero-module">
+
+  <div class="video-container">
+
+    <div class="title-container text-center">
+
+      <div class="headline">
+        <!--Original logo height 80px-->
+        <div class="title">
+          <h1>AirPay</h1>
+          <h3>Gagnez du temps. Payez avant la caisse</h3>
+        </div>
+      </div>
+
+
+      <div class="searchbar-flex">
+        <!--Insérer la search bar ici-->
+        <form action="/reservations/find" class="form-inline searchbar-background">
+          <input type="text" name="reservation[creator_last_name]" class="form-control input-lg" placeholder="Nom de la réservation">
+          <select name="reservation[sport_category]" id="" class="form-control input-lg">
+            <option value="1">Foot5</option>
+            <option value="2">Badminton</option>
+            <option value="3">Padel</option>
+            <option value="3">Squash</option>
+            <option value="3">Fitness</option>
+          </select>
+          <input type="date" name="reservation[date]" class="form-control input-lg" id="input-date">
+          <input type="submit" class="btn btn-danger btn-lg" value="Chercher">
+        </form>
+      </div>
+      <div class="search-result">
+       <% if @reservations %>
+       <%= @reservations %>
+       <% end %>
+     </div>
+
+
+
+     <div class="text-center" id="loadBannerVideoSpinner" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 4px; display: none; margin-top: 20px;">
+      <h5 class="text-thin text-primary">Loading AirPay... <i class="fa fa-circle-o-notch fa-spin"></i></h5>
+    </div>
+
+  </div>
+
+  <div class="filter"></div>
+  <video autoplay loop class="fillWidth">
+    <source src="../assets/Matkot.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    <source src="../assets/Matkot.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+  </video>
+  <div class="poster hidden">
+    <%= image_tag "Matkot.jpg" %>
+  </div>
+
+</div>
+
+</div>
+
+<!-- Second part: steps -->
+
+<div class="banner-home" style="background: url('../assets/orange.png')">
+  <div class="banner-home-content text-center" >
+    <h3>Simple comme AirPay</h3>
+    <p>N'attendez plus d'être à la caisse pour payer ! </p>
+  </div>
+</div>
+
+<div class="banner-home" style="background: url('../assets/vert.png')">
+  <div class="banner-home-content text-center" >
+    <h3>1. Trouvez votre réservation</h3>
+    <p>En renseignant le nom de la personne qui a réservé, la sport et la date</p>
+  </div>
+</div>
+
+<div class="banner-home" style="background: url('../assets/violet.png')">
+  <div class="banner-home-content text-center" >
+    <h3>2. Vérifiez les infos</h3>
+    <p>Découvrez qui a déjà payé et partagez la page</p>
+  </div>
+</div>
+
+<div class="banner-home" style="background: url('../assets/bleu.png')">
+  <div class="banner-home-content text-center" >
+    <h3>3. Complétez votre panier</h3>
+    <p>Et choisissez votre mode de paiement</p>
+  </div>
+</div>
+
+<div class="banner-home" style="background: url('../assets/rouge.png')">
+  <div class="banner-home-content text-center" >
+    <h3>4. Accédez au détail de la réservation</h3>
+    <p>Et partagez l'info à vos amis</p>
+  </div>
+</div>
+
