@@ -15,7 +15,7 @@
 
       <div class="searchbar-flex">
         <!--Insérer la search bar ici-->
-        <form action="/reservations/find" class="form-inline searchbar-background">
+        <form action="/reservations/find" class="form-inline searchbar-background" data-remote="true">
           <input type="text" name="reservation[creator_last_name]" class="form-control input-lg" placeholder="Nom de la réservation">
           <select name="reservation[sport_category]" id="" class="form-control input-lg">
             <option value="1">Foot5</option>
@@ -29,32 +29,9 @@
         </form>
       </div>
 
-      <div class="search-result-center">
-        <div class="search-result">
-          <div class="resa-center">
-            <div class="resa-search">
-              <p>Bouyer François</p>
-              <p> - </p>
-              <p>Foot5</p>
-              <p> - </p>
-              <p>26/07/2017</p>
-              <p> - </p>
-              <p>#12345</p>
-            </div>
-          </div>
-          <div class="resa-center">
-            <div class="resa-search">
-             <p>Bouyer Pierre-Antoine</p>
-             <p> - </p>
-             <p>Foot5</p>
-             <p> - </p>
-             <p>26/07/2017</p>
-             <p> - </p>
-             <p>#23456</p>
-           </div>
-         </div>
-       </div>
-     </div>
+      <div id="reservation-result">
+      </div>
+
 
 
 
@@ -86,19 +63,19 @@
   </div>
   <div class="photo-banner">
     <div>
-      <%= image_tag 'tennis.png' %>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'vide.png' %>
     </div>
     <div>
       <%= image_tag 'tennis.png' %>
     </div>
     <div>
-      <%= image_tag 'tennis.png' %>
+      <%= image_tag 'vide.png' %>
     </div>
     <div>
-      <%= image_tag 'tennis.png' %>
-    </div>
-    <div>
-      <%= image_tag 'tennis.png' %>
+      <%= image_tag 'vide.png' %>
     </div>
   </div>
 </div>
@@ -106,6 +83,75 @@
   <div class="banner-home-content text-center" >
     <h3>1. Trouvez votre réservation</h3>
     <p>En renseignant le nom de la personne qui a réservé, la sport et la date</p>
+  </div>
+  <div class="photo-banner">
+    <div>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+    <div>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+  </div>
+</div>
+<div class="banner-home" id="banner-purple">
+  <div class="banner-home-content text-center" >
+    <h3>2. Vérifiez les infos</h3>
+    <p>Découvrez qui a déjà payé et partagez la page</p>
+  </div>
+  <div class="photo-banner">
+    <div>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+    <div>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+  </div>
+</div>
+<div class="banner-home" id="banner-blue">
+  <div class="banner-home-content text-center" >
+    <h3>3. Complétez votre panier</h3>
+    <p>Et choisissez votre mode de paiement</p>
+  </div>
+  <div class="photo-banner">
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+    <div>
+      <%= image_tag 'vide.png' %>
+    </div>
+    <div>
+      <%= image_tag 'tennis.png' %>
+    </div>
+  </div>
+</div>
+<div class="banner-home" id="banner-red">
+  <div class="banner-home-content text-center" >
+    <h3>4. Accédez au détail de la réservation</h3>
+    <p>Et partagez l'info à vos amis</p>
   </div>
   <div class="photo-banner">
     <div>
@@ -126,25 +172,4 @@
   </div>
 </div>
 
-
-<div class="banner-home" style="background: url('../assets/violet.png')">
-  <div class="banner-home-content text-center" >
-    <h3>2. Vérifiez les infos</h3>
-    <p>Découvrez qui a déjà payé et partagez la page</p>
-  </div>
-</div>
-
-<div class="banner-home" style="background: url('../assets/bleu.png')">
-  <div class="banner-home-content text-center" >
-    <h3>3. Complétez votre panier</h3>
-    <p>Et choisissez votre mode de paiement</p>
-  </div>
-</div>
-
-<div class="banner-home" style="background: url('../assets/rouge.png')">
-  <div class="banner-home-content text-center" >
-    <h3>4. Accédez au détail de la réservation</h3>
-    <p>Et partagez l'info à vos amis</p>
-  </div>
-</div>
 
