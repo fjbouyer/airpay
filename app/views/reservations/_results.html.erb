@@ -4,17 +4,29 @@
 <div class="search-result-center">
   <div class="search-result">
     <div class="resa-center">
-    <div class="resa-search">
-        <% @reservations.each do |reservation| %>
-            <p># <%= reservation.id  %></p>
-            <p> - </p>
-            <p><%= User.find(reservation.user_id).last_name.capitalize %> <%= User.find(reservation.user_id).first_name.capitalize %></p>
-            <p> - </p>
-            <%= reservation.sport_category.name %>
-            <p> - </p>
-            <%= reservation.date %>
-        <% end %>
-      </div>
+
+     <% @reservations.each do |reservation| %>
+     <%= link_to reservation_path(reservation), class: 'link-result' do %>
+     <div class="resa-search">
+      <p>
+        # <%= reservation.id  %>
+      </p>
+      <p> - </p>
+      <p>
+        <%= reservation.creator.last_name.capitalize %> <%= reservation.creator.first_name.capitalize %>
+      </p>
+      <p> - </p>
+      <p>
+        <%= reservation.sport_category.name %>
+      </p>
+      <p> - </p>
+      <p>
+        <%= reservation.date %>
+      </p>
     </div>
+    <% end %>
+    <% end %>
+
   </div>
+</div>
 </div>
