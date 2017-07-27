@@ -8,4 +8,5 @@ class PagesController < ApplicationController
     @base_font   = "Open Sans"
     @header_font = "Raleway"
   end
+
 end
