@@ -6,15 +6,14 @@
     <div class="resa-center">
     <div class="resa-search">
         <% @reservations.each do |reservation| %>
-        <p># <%= reservation.id  %></p>
-        <p> - </p>
-        <p><%= reservation.user.last_name.capitalize %> <%= reservation.user.first_name.capitalize %></p>
-        <p> - </p>
-        <%= reservation.sport_category.name %>
-        <p> - </p>
-        <%= reservation.date %>
+            <p># <%= reservation.id  %></p>
+            <p> - </p>
+            <p><%= User.find(reservation.user_id).last_name.capitalize %> <%= User.find(reservation.user_id).first_name.capitalize %></p>
+            <p> - </p>
+            <%= reservation.sport_category.name %>
+            <p> - </p>
+            <%= reservation.date %>
         <% end %>
-
       </div>
     </div>
   </div>
