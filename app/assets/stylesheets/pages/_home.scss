@@ -70,7 +70,12 @@
   border-radius: $border-radius-large;
   p {
     padding: 5px;
+    margin: 0;
   }
+}
+
+.resa-search:hover {
+  background-color: rgba(255,255,255,0.8)
 }
 
 

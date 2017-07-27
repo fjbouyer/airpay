@@ -1,6 +1,33 @@
 <% content_for :title, "Airpay - Votre réservation" %>
 
+<div class="banner-show" style="background: url(<%= image_path("foot.jpg") %>);">
+
+</div>
+
 <div class="container">
+  <div class="photo-display">
+    <div >
+      <ul class="list-inline ">
+        <li>
+          <h5>Paiements effectués</h5>
+        </li>
+        <li>
+         <h5> 1 / 10</h5>
+       </li>
+     </ul>
+   </div>
+   <ul class="list-photo list-inline text-center">
+    <li>
+      <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
+      <p>Francky</p>
+    </li>
+  </ul>
+</div>
+</div>
+
+
+
+<div class="container" id="resa-info">
   <div class="row">
     <div class="col-xs-12 col-sm-8">
       <div id="reservation-infos">
@@ -30,12 +57,7 @@
           <div class="panel-body text-center" id="reservation-users-container">
             <p>Paiements reçus pour X/X joueurs :</p>
             <div>
-              <ul>
-                <li><img src="http://placehold.it/50/55C1E7/fff&text=U1" alt="User Avatar" class="img-circle" /> User 1</li>
-                <li><img src="http://placehold.it/50/C155E7/fff&text=U2" alt="User Avatar" class="img-circle" /> User 2</li>
-                <li><img src="http://placehold.it/50/55E7C1/fff&text=U3" alt="User Avatar" class="img-circle" /> User 3</li>
-                <li><img src="http://placehold.it/50/E7C155/fff&text=U4" alt="User Avatar" class="img-circle" /> User 4</li>
-              </ul>
+
             </div>
           </div>
           <div class="panel-footer text-center">
