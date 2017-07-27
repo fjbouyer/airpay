@@ -1,0 +1,14 @@
+<div class="tabs">
+  <%= link_to account_profile_path, class: dashboard_class ||= "tab", :data => { :target => "#dashboard" } do %>
+    <p>Dashboard</p>
+  <% end %>
+  <%= link_to account_reservations_path, class: reservations_class ||= "tab", :data => { :target => "#reservations" } do %>
+    <p>Mes réservations</p>
+  <% end %>
+  <%= link_to account_orders_path, class: orders_class ||= "tab", :data => { :target => "#orders" } do %>
+    <p>Mes parties</p>
+  <% end %>
+  <%= link_to account_profile_edit_path, class: settings_class ||= "tab", :data => { :target => "#settings" } do %>
+    <p>Settings</p>
+  <% end %>
+</div>
