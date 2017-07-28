@@ -71,7 +71,7 @@ jo = User.create!(first_name: "Jo",
 
 puts "Start Reservation"
 reservation_1 = Reservation.create!(sport_category: foot_category,
-                                    user_id: 1,
+                                    creator: adrien,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
@@ -79,7 +79,7 @@ reservation_1 = Reservation.create!(sport_category: foot_category,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: padel_category,
-                                    user_id: 2,
+                                    creator: vincent,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
@@ -87,7 +87,7 @@ reservation_2 = Reservation.create!(sport_category: padel_category,
                                     vat_rate: 0.2)
 
 reservation_1 = Reservation.create!(sport_category: foot_category,
-                                    user_id: 3,
+                                    creator: julien,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
@@ -95,7 +95,7 @@ reservation_1 = Reservation.create!(sport_category: foot_category,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: bad_category,
-                                    user_id: 4,
+                                    creator: jo,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
