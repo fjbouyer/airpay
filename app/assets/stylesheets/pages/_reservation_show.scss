@@ -33,10 +33,11 @@
 }
 
 .reservation-card-title {
-  text-align: center;
+  text-align: left;
+  margin: 10px 10px 10px 30px;
 }
-.reservation-card-picture img {
-  width: 100px;
+.reservation-card-picture {
+  width: 50px;
 
 }
 
@@ -44,11 +45,14 @@
   color: $green;
 }
 
-#reservation-infos .row {
+.reservation-car-content .row {
+  height: 100px;
+}
+
+.flex-content {
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  height: 200px;
 }
 
 .banner-show {
@@ -78,15 +82,71 @@
 }
 
 .photo-display .list-photo {
-  display:flex;
-  justify-content: space-around;
   align-items: center;
 }
 
 .list-photo {
-  margin: 0;
+  display: block;
+  margin: 0 0 0 20vh;
+  text-align: left;
+  li {
+    text-align: left;
+    margin-left: -20px;
+  }
+  p {
+    text-align: center;
+    font-size: 15px;
+  }
 }
 
 #resa-info {
   margin-top: -15vh;
 }
+
+.footer-social a i {
+  font-size: 30px;
+  font-color: $blue;
+  margin: 20px 0;
+}
+
+.share-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.share-link {
+  flex: 0 0 24%;
+  color: white;
+  font-size: 18px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover {
+    color: white;
+  }
+}
+
+.fa-facebook {
+  padding-left: 400px;
+}
+
+.fa-envelope-o {
+  padding-right: 400px;
+}
+
+#logo-sporting {
+  width: 80px;
+  margin: 0 50px;
+}
+
+.photo-avatar-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-jepaye {
+  margin: 10px;
+}
+
