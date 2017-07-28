@@ -72,32 +72,32 @@ jo = User.create!(first_name: "Jo",
 puts "Start Reservation"
 reservation_1 = Reservation.create!(sport_category: foot_category,
                                     creator: adrien,
-                                    date: Date.new,
-                                    time: Date.new,
+                                    date: Date.new(2017,7,28),
+                                    time: DateTime.new(2017,7,28, 19, 00),
                                     number_of_hour: 2,
                                     price_per_hour_excl_vat: 20,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: padel_category,
                                     creator: vincent,
-                                    date: Date.new,
-                                    time: Date.new,
+                                    date: Date.new(2017,7,28),
+                                    time: DateTime.new(2017,7,28, 19, 00),
                                     number_of_hour: 2,
                                     price_per_hour_excl_vat: 20,
                                     vat_rate: 0.2)
 
 reservation_1 = Reservation.create!(sport_category: foot_category,
                                     creator: julien,
-                                    date: Date.new,
-                                    time: Date.new,
+                                    date: Date.new(2017,7,28),
+                                    time: DateTime.new(2017,7,28, 19, 00),
                                     number_of_hour: 2,
                                     price_per_hour_excl_vat: 20,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: bad_category,
                                     creator: jo,
-                                    date: Date.new,
-                                    time: Date.new,
+                                    date: Date.new(2017,7,28),
+                                    time: DateTime.new(2017,7,28, 19, 00),
                                     number_of_hour: 2,
                                     price_per_hour_excl_vat: 20,
                                     vat_rate: 0.2)
