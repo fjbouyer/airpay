@@ -1,0 +1,61 @@
+<% content_for :title, "Airpay - Shopping" %>
+
+<div class="container" id="app">
+  <div class="product-list">
+    <div class="product-list-categories">
+      <div class="row">
+        <% @products.each do |category, array| %>
+          <div class="col-xs-3">
+            <div class="product-list-category tabs">
+              <a class="cat" data-target="#<%= category.name %>">
+                <h3><%= category.name %></h3>
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class"products-list">
+        <% @products.each do |category, array| %>
+          <div class="product cat-content hidden" id="<%= category.name %>">
+            <div class="row">
+              <% if array.empty? %>
+                <p>Pas de produits dans cette catgorie</p>
+              <% else %>
+                <% array.each do |product| %>
+                  <div class="col-xs-3">
+                    <div class="product" data-productId="<%= product.id %>">
+                      <h3><span class="product-name"><%= product.name %></span></h3>
+                      <p><span class="product-price"><%= product.price_excl_vat %></span></p>
+                      <span class="btn btn-primary addToCart">Ajouter</span>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+  <div class="row">
+    <div class="shopping-cart">
+      <div class="col-xs-12">
+        <table>
+          <thead>
+            <tr>
+              <td>Designation</td>
+              <td>Prix unitaire</td>
+              <td>Quantité</td>
+              <td>Prix total</td>
+              <td>Supprimer element</td>
+            </tr>
+          </thead>
+          <tbody id="table-product-list">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'cart' %>
