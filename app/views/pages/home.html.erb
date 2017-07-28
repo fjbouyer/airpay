@@ -19,11 +19,14 @@
         <form action="/reservations/find" class="form-inline searchbar-background" data-remote="true">
           <input type="text" name="reservation[creator_last_name]" class="form-control input-lg" placeholder="Nom de la réservation">
           <select name="reservation[sport_category]" id="" class="form-control input-lg">
-            <option value="1">Foot5</option>
+            <%= SportCategory.all.each do |sport_category| %>
+              <option value="<%= sport_category.id %>"><%= sport_category.name %></option>
+            <% end %>
+            <!-- <option value="1">Foot5</option>
             <option value="2">Badminton</option>
             <option value="3">Padel</option>
             <option value="3">Squash</option>
-            <option value="3">Fitness</option>
+            <option value="3">Fitness</option> -->
           </select>
           <input type="date" name="reservation[date]" class="form-control input-lg" id="input-date">
           <input type="submit" class="btn btn-danger btn-lg" value="Chercher">
