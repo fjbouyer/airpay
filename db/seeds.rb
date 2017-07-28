@@ -29,12 +29,16 @@ SportCategory.destroy_all
 puts "Start populating db with seeds"
 
 puts "Start SportCategory"
-foot_category = SportCategory.create!(name: "Football")
-tennis_category = SportCategory.create!(name: "Tennis")
+foot_category = SportCategory.create!(name: "Foot5")
+padel_category = SportCategory.create!(name: "Padel")
+squash_category = SportCategory.create!(name: "Squash")
+bad_category = SportCategory.create!(name: "Badminton")
 
 puts "Start ProductCategory"
 boisson_category = ProductCategory.create!(name: "Boissons")
-loc_category = ProductCategory.create!(name: "Location")
+loc_category = ProductCategory.create!(name: "Location de matériel")
+vente_category = ProductCategory.create!(name: "Vente de matériel")
+food_category = ProductCategory.create!(name: "Petite faim")
 
 puts "Start User"
 adrien = User.create!(first_name: "Adrien",
@@ -51,17 +55,47 @@ vincent = User.create!(first_name: "Vincent",
               email: "vince.hr@gmail.com",
               password: "secret")
 
+julien = User.create!(first_name: "Julien",
+              last_name: "VDS",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "julien@gmail.com",
+              password: "secret")
+
+jo = User.create!(first_name: "Jo",
+              last_name: "Bouyer",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "jo@gmail.com",
+              password: "secret")
+
 puts "Start Reservation"
 reservation_1 = Reservation.create!(sport_category: foot_category,
-                                    user: adrien,
+                                    user_id: 1,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
                                     price_per_hour_excl_vat: 20,
                                     vat_rate: 0.2)
 
-reservation_2 = Reservation.create!(sport_category: foot_category,
-                                    user: vincent,
+reservation_2 = Reservation.create!(sport_category: padel_category,
+                                    user_id: 2,
+                                    date: Date.new,
+                                    time: Date.new,
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 20,
+                                    vat_rate: 0.2)
+
+reservation_1 = Reservation.create!(sport_category: foot_category,
+                                    user_id: 3,
+                                    date: Date.new,
+                                    time: Date.new,
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 20,
+                                    vat_rate: 0.2)
+
+reservation_2 = Reservation.create!(sport_category: bad_category,
+                                    user_id: 4,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
@@ -69,25 +103,25 @@ reservation_2 = Reservation.create!(sport_category: foot_category,
                                     vat_rate: 0.2)
 
 puts "Start Message"
-message_1 = Message.create!(content: "Trop bien cette appli!",
+message_1 = Message.create!(content: "C'est payé ! Quelqu'un peut m'emmener ?",
                             user: adrien,
                             reservation: reservation_1)
 
-message_2 = Message.create!(content: "Trop ouf cette appli!",
+message_2 = Message.create!(content: "Soyez bien à l'heure les gars ;)",
                             user: vincent,
                             reservation: reservation_2)
 
 puts "Start Order"
 order_1 = Order.create!(reservation: reservation_1,
                         user: adrien,
-                        quantity: 2,
+                        quantity: 1,
                         total_price_excl_vat: 42,
                         vat_rate: 0.2,
                         status: "En attente")
 
 order_2 = Order.create!(reservation: reservation_2,
                         user: vincent,
-                        quantity: 4,
+                        quantity: 2,
                         total_price_excl_vat: 42,
                         vat_rate: 0.2,
                         status: "Payé")
@@ -98,7 +132,7 @@ bzh_cola = Product.create!(name: "Breizh Cola",
                             price_excl_vat: 2,
                             vat_rate: 0.2)
 
-bierre = Product.create!(name: "Bierre",
+biere = Product.create!(name: "Bière",
                             product_category: boisson_category,
                             price_excl_vat: 2,
                             vat_rate: 0.2)
@@ -111,7 +145,7 @@ OrderProduct.create!(product: bzh_cola,
                       total_price: 6,
                       vat_rate: 0.2)
 
-OrderProduct.create!(product: bierre,
+OrderProduct.create!(product: biere,
                       order: order_1,
                       quantity: 3,
                       product_price: 2,
