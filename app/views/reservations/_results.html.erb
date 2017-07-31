@@ -1,32 +1,23 @@
 
 
-
-<div class="search-result-center">
-  <div class="search-result">
-    <div class="resa-center">
-
      <% @reservations.each do |reservation| %>
      <%= link_to reservation_path(reservation), class: 'link-result' do %>
-     <div class="resa-search">
-      <p>
-        # <%= reservation.id  %>
-      </p>
-      <p> - </p>
-      <p>
-        <%= reservation.creator.last_name.capitalize %> <%= reservation.creator.first_name.capitalize %>
-      </p>
-      <p> - </p>
-      <p>
-        <%= reservation.sport_category.name %>
-      </p>
-      <p> - </p>
-      <p>
-        <%= reservation.date %>
-      </p>
+     <div class="text-center card-result-background">
+      <div class="card-result">
+        <div class="card-result-picto-title">
+          <%= image_tag "pictos_foot.png", class:"img-rounded", id:"picto-result"%>
+          <p><%= reservation.sport_category.name %></p>
+        </div>
+        <div class='card-result-name-reservation'>
+          <h3><%= reservation.creator.last_name.capitalize %> <%= reservation.creator.first_name.capitalize %></h3>
+          <p>réservation # <%= reservation.id  %></p>
+        </div>
+        <div class='card-result-date-hour'>
+          <h4><%= reservation.date.strftime('%d/%m/%Y') %></h4>
+          <p><%= reservation.time.strftime('%H:%M') %></p>
+        </div>
+      </div>
     </div>
     <% end %>
     <% end %>
 
-  </div>
-</div>
-</div>

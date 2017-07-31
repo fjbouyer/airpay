@@ -1,134 +1,105 @@
 <% content_for :title, "Airpay - Votre réservation" %>
 
 <div class="banner-show" style="background: url(<%= image_path("foot.jpg") %>);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="photo-display">
+          <div >
+            <ul class="list-inline" id="list-title-photo">
+              <li>
+                <h5>Paiements effectués:</h5>
+              </li>
+              <li>
+               <h5> <%= @reservation.orders.count %> /
+                 <%= @reservation.sport_category.name %>
 
-</div>
-
-<div class="container">
-  <div class="photo-display">
-    <div >
-      <ul class="list-inline ">
-        <li>
-          <h5>Paiements effectués:</h5>
-        </li>
-        <li>
-         <h5> 4 / 10</h5>
-       </li>
-     </ul>
-   </div>
-   <div class="photo-avatar-logo">
-     <ul class="list-photo list-inline">
-      <li class="text-center">
-        <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
-        <p>Francky</p>
-      </li>
-      <li class="text-center">
-        <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
-        <p>Francky</p>
-      </li>
-      <li class="text-center">
-        <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
-        <p>Francky</p>
-      </li>
-      <li class="text-center">
-        <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
-        <p>Francky</p>
-      </li>
-    </ul>
-    <p class="text-center">
-      <%= image_tag ('logo-sporting.png'), id: "logo-sporting" %>
-    </p>
-  </div>
-</div>
-</div>
-
-
-
-<div class="container" id="resa-info">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8">
-      <div id="reservation-infos">
-        <div class="reservation-card">
-          <div class="reservation-card-title">
-            <h2><strong> <%= @reservation.creator.last_name.capitalize %> <%= @reservation.creator.first_name.capitalize %></strong></h2>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="flex-content">
-                <div class="info-sport-terrain">
-                  <%= image_tag "pictos_foot.png", class:"reservation-card-picture" %>
-                </div>
-                <div>Foot5</div>
-                <div>Terrain n° 2</div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-3">
-              <div class="info-sport-terrain">
-                <%= image_tag "" %>
-              </div>
-            </div>
-            <p>25/07/2017</p>
-          </div>
-          <div class="row">
-            <div class="col-xs-3">
-              <div class="info-sport-terrain">
-                <%= image_tag "" %>
-              </div>
-            </div>
-            <p>1 heure</p>
-          </div>
-          <div class="row">
-            <div class="col-xs-3">
-              <div class="info-sport-terrain">
-                <%= image_tag "" %>
-              </div>
-            </div>
-            <p>Prix par personne: 8€</p>
-          </div>
-          <div class="btn-jepaye text-center">
-          <%= link_to "Je paye", new_reservation_order_path(@reservation), class: "btn btn-primary"  %>
-          </div>
+               </h5>
+             </li>
+           </ul>
+         </div>
+         <div class="photo-avatar-logo">
+           <ul class="list-photo list-inline">
+            <li class="text-center">
+              <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
+              <p>Francky</p>
+            </li>
+            <li class="text-center">
+              <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
+              <p>Francky</p>
+            </li>
+            <li class="text-center">
+              <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
+              <p>Francky</p>
+            </li>
+            <li class="text-center">
+              <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
+              <p>Francky</p>
+            </li>
+            <li class="text-center">
+              <%= image_tag ('avatar.jpg'), class: "avatar-large" %>
+              <p>Francky</p>
+            </li>
+          </ul>
+          <p class="text-center">
+            <%= image_tag ('logo-sporting.png'), id: "logo-sporting" %>
+          </p>
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div id="reservation-users">
-        <div class="panel panel-primary">
-          <div class="panel-body text-center" id="reservation-users-container">
-            <p>Réserver un terrain</p>
-            <div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
   </div>
-  <div class="footer-social text-center">
-    <div class="share-links">
-      <a href="#" >
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-      </a>
-      <a href="#" >
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-      </a>
-      <a href="#" >
-        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-</div>
 
-<div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div id="reservation-chat">
-        <%= render 'chat' %>
+      <div class="col-xs-12 col-sm-8" id="reservation-card-info">
+        <div id="reservation-card-info-left">
+          <div class=" reservation-card-title">
+            <h2><strong> <%= @reservation.creator.last_name.upcase %> <%= @reservation.creator.first_name.capitalize %></strong>
+            </h2>
+          </div>
+          <div class="col-xs-12 reservation-card-info-flex" >
+            <div class="col-xs-12 col-sm-2 reservation-card-first-line">
+             <%= image_tag "pictos_foot.png", class:"reservation-card-picture" %>
+           </div>
+           <div class="col-xs-12 col-sm-4 reservation-card-info-line reservation-card-last-line" >
+            Terrain n° 2
+          </div>
+          <div class="col-xs-12 col-sm-2 reservation-card-info-line">
+           <%= @reservation.sport_category.name %>
+         </div>
+       </div>
+       <div class="col-xs-12 reservation-card-info-flex" >
+        <div class="col-xs-12 col-sm-2 reservation-card-first-line">
+          <i class="fa fa-calendar" aria-hidden="true" id="icon-calendar"></i>
+        </div>
+        <div class="col-xs-12 col-sm-4 reservation-card-info-line reservation-card-last-line">
+          <%= @reservation.time.strftime('%H:%M') %>
+        </div>
+        <div class="col-xs-12 col-sm-2 reservation-card-info-line">
+          <%= @reservation.date.strftime('%d/%m/%Y')  %>
+        </div>
+      </div>
+      <div class="col-xs-12 reservation-card-info-flex" id="reservation-card-info-last-row">
+        <div class="col-xs-12 col-sm-2 reservation-card-first-line">
+         <i class="fa fa-eur" aria-hidden="true" id="icon-calendar"></i>
+       </div>
+       <div class="col-xs-12 col-sm-4 reservation-card-info-line reservation-card-last-line">
+        <%= @reservation.price_per_hour_excl_vat %> € / heure
+      </div>
+      <div class="col-xs-12 col-sm-2 reservation-card-info-line">
+        <%= @reservation.number_of_hour %> heures
       </div>
     </div>
   </div>
 </div>
+<div class="btn text-center col-xs-12 col-sm-4"  id="link-jepaye">
+  <div id="btn-jepaye">
+    <%= link_to "Payer", new_reservation_order_path(@reservation)%>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

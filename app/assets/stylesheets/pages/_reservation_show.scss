@@ -1,41 +1,45 @@
-#reservation-infos,
-#reservation-users,
-#reservation-chat {
-  margin-top: 15px;
-}
 
-#reservation-users-container p {
-  font-weight: bold;
-}
 
-#reservation-users-container li {
-  list-style: none;
-  margin-top: -8px;
-}
 
-#reservation-users-container ul {
-  padding-left: 0px;
-  padding-top: 10px;
-}
-
-// #reservation-infos-container {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
-
-.reservation-card {
+#reservation-card-info {
   background-color: white;
   border-radius: 4px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
 
+#reservation-card-info-left {
+  padding: 15px;
 }
 
 .reservation-card-title {
   text-align: left;
+  color: $blue;
   margin: 10px 10px 10px 30px;
+  text-shadow: 1px 1px $gray;
+  h2 {
+    font-size: 30px;
+  }
 }
+
+.reservation-card-info-flex {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+#reservation-card-info-last-row {
+  margin-bottom: 20px;
+}
+
+.reservation-card-info-line {
+  text-align: left;
+  font-size: 17px;
+  font-weight:400;
+  padding: 10px;
+}
+
 .reservation-card-picture {
   width: 50px;
 
@@ -49,6 +53,14 @@
   height: 100px;
 }
 
+.reservation-card-first-line {
+  text-align: center;
+}
+
+.reservation-card-last-line {
+  font-weight: 600;
+}
+
 .flex-content {
   display:flex;
   justify-content: space-around;
@@ -56,7 +68,7 @@
 }
 
 .banner-show {
-  height: 50vh;
+  height: 100vh;
   z-index: -1;
 
 }
@@ -66,12 +78,15 @@
 
 }
 
+#content-show {
+  margin-top: -95vh;
+}
+
 .photo-display {
   z-index: 1000;
   background-color: white;
   border-radius: $border-radius-base;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  margin-top: -45vh;
   h5 {
     color: $gray;
     font-size: 17px;
@@ -91,48 +106,18 @@
   text-align: left;
   li {
     text-align: left;
-    margin-left: -20px;
+    margin-left: -5vh;
   }
   p {
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: 600;
   }
 }
 
-#resa-info {
-  margin-top: -15vh;
-}
-
-.footer-social a i {
-  font-size: 30px;
-  font-color: $blue;
-  margin: 20px 0;
-}
-
-.share-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.share-link {
-  flex: 0 0 24%;
-  color: white;
-  font-size: 18px;
-  padding: 10px 0;
-  text-align: center;
-  border-radius: 2px;
-  cursor: pointer;
-  &:hover {
-    color: white;
-  }
-}
-
-.fa-facebook {
-  padding-left: 400px;
-}
-
-.fa-envelope-o {
-  padding-right: 400px;
+.list-title-photo {
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 #logo-sporting {
@@ -146,7 +131,41 @@
   align-items: center;
 }
 
-.btn-jepaye {
-  margin: 10px;
+#btn-jepaye {
+  background-color: $red;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 20px;
+  border-radius: $border-radius-base;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
+#btn-jepaye a {
+  color: white;
+  text-decoration: none;
+}
+
+#btn-jepaye:hover {
+  background-color: rgb(250,0,20);
+  color: white;
+  opacity: 1;
+}
+
+#btn-jepaye:focus {
+  background-color: rgb(250,0,20);
+  color: white;
+  opacity: 1;
+}
+
+#link-jepaye {
+  padding: 0 20px;
+  vertical-align: middle;
+}
+
+#icon-calendar {
+  font-size: 40px;
+}
