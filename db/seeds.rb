@@ -53,19 +53,19 @@ vincent = User.create!(first_name: "Vincent",
 
 puts "Start Reservation"
 reservation_1 = Reservation.create!(sport_category: foot_category,
-                                    user: adrien,
+                                    creator: adrien,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
-                                    price_per_hour_excl_vat: 20,
+                                    price_per_hour_cent_incl_vat: 20,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: foot_category,
-                                    user: vincent,
+                                    creator: vincent,
                                     date: Date.new,
                                     time: Date.new,
                                     number_of_hour: 2,
-                                    price_per_hour_excl_vat: 20,
+                                    price_per_hour_cent_incl_vat: 20,
                                     vat_rate: 0.2)
 
 puts "Start Message"
@@ -80,42 +80,54 @@ message_2 = Message.create!(content: "Trop ouf cette appli!",
 puts "Start Order"
 order_1 = Order.create!(reservation: reservation_1,
                         user: adrien,
-                        quantity: 2,
-                        total_price_excl_vat: 42,
-                        vat_rate: 0.2,
-                        status: "En attente")
+                        person_quantity: 2,
+                        total_price_cent_incl_vat: 42,
+                        reservation_vat_rate: 0.2,
+                        status: "En attente",
+                        address: "homeless",
+                        postal_code: "42",
+                        city: "lol",
+                        first_name: "mdr",
+                        last_name: "haha",
+                        phone_number: "0987654321",
+                        email: "lol@lol.lol")
 
 order_2 = Order.create!(reservation: reservation_2,
                         user: vincent,
-                        quantity: 4,
-                        total_price_excl_vat: 42,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 4,
+                        total_price_cent_incl_vat: 42,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        address: "homeless",
+                        postal_code: "42",
+                        city: "lol",
+                        first_name: "mdr",
+                        last_name: "haha",
+                        phone_number: "0987654321",
+                        email: "lol@lol.lol")
 
 puts "Start Product"
 bzh_cola = Product.create!(name: "Breizh Cola",
                             product_category: boisson_category,
-                            price_excl_vat: 2,
+                            price_cent_incl_vat: 2,
                             vat_rate: 0.2)
 
 bierre = Product.create!(name: "Bierre",
                             product_category: boisson_category,
-                            price_excl_vat: 2,
+                            price_cent_incl_vat: 2,
                             vat_rate: 0.2)
 
 puts "Start OrderProduct"
 OrderProduct.create!(product: bzh_cola,
                       order: order_1,
                       quantity: 3,
-                      product_price: 2,
-                      total_price: 6,
-                      vat_rate: 0.2)
+                      product_price_cent_incl_vat: 2,
+                      product_vat_rate: 0.2)
 
 OrderProduct.create!(product: bierre,
                       order: order_1,
                       quantity: 3,
-                      product_price: 2,
-                      total_price: 6,
-                      vat_rate: 0.2)
+                      product_price_cent_incl_vat: 2,
+                      product_vat_rate: 0.2)
 
 puts "Seeds has been planted =)"

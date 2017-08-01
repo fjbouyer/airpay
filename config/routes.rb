@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:show] do
     resources :orders, only: [:new, :create]
+    resources :payments, only: [:new, :create]
   end
 
   namespace :account do

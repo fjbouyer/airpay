@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724171729) do
+ActiveRecord::Schema.define(version: 20170801144835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,10 @@ ActiveRecord::Schema.define(version: 20170724171729) do
     t.integer  "product_id"
     t.integer  "order_id"
     t.integer  "quantity"
-    t.float    "product_price"
-    t.float    "total_price"
-    t.float    "vat_rate"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "product_price_cent_incl_vat"
+    t.float    "product_vat_rate"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["order_id"], name: "index_order_products_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_products_on_product_id", using: :btree
   end
@@ -41,12 +40,21 @@ ActiveRecord::Schema.define(version: 20170724171729) do
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "reservation_id"
+    t.integer  "person_quantity"
+    t.integer  "total_price_cent_incl_vat"
+    t.float    "reservation_vat_rate"
     t.string   "status"
-    t.integer  "quantity"
-    t.float    "total_price_excl_vat"
-    t.float    "vat_rate"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "address"
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "cart_snapshot"
+    t.json     "payment"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["reservation_id"], name: "index_orders_on_reservation_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -60,10 +68,11 @@ ActiveRecord::Schema.define(version: 20170724171729) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "product_category_id"
-    t.float    "price_excl_vat"
+    t.integer  "price_cent_incl_vat"
     t.float    "vat_rate"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "picture_path"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
@@ -73,10 +82,10 @@ ActiveRecord::Schema.define(version: 20170724171729) do
     t.date     "date"
     t.date     "time"
     t.integer  "number_of_hour"
-    t.float    "price_per_hour_excl_vat"
+    t.integer  "price_per_hour_cent_incl_vat"
     t.float    "vat_rate"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["sport_category_id"], name: "index_reservations_on_sport_category_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
