@@ -1,0 +1,62 @@
+<% content_for :title, "Airpay - Votre réservation" %>
+
+<div class="banner-show" style="background-image: url(<%= image_path("foot.jpg") %>);">
+  <div id="container-body">
+    <div class="row" >
+      <div class="col-xs-12 col-sm-7 col-sm-offset-1" id="card-left-padding">
+        <div class="reservation-card-left-confirmed">
+          <div class="col-xs-12 col-sm-6 card-padding">
+            <div class="info-resa">
+              <div   style="background-image: linear-gradient(-225deg, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 50%), url(<%= image_path(@picto) %>); background-size:cover; height:350px;">
+                <div class="text-opacity">
+                  info reservation
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 card-padding">
+            <div class="info-paiement">
+              info paiement
+            </div>
+          </div>
+          <div class="col-xs-12 card-padding">
+            <div class="share-social text-center">
+              <div id="social-title">
+                <h4> Partage l'info à tes amis </h4>
+                 <p>surtout à ceux qui arrivent toujours en retard</p>
+              </div>
+              <div class="footer-social text-center">
+                <div class="share-links">
+                  <a href="#" >
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" >
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" >
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-3 card-padding">
+        <div class="reservation-card-right-confirmed text-center">
+          <h4>Déjà payé: <%= @reservation.orders.count %> / <%= @sport_category.minimum_players%></h4>
+          <div class="photo-avatar-logo">
+            <div id="photo-align-left-confirmed">
+              <% @orders.each do |order|  %>
+              <div class="avatar-name-flex">
+                <%= image_tag (order.user.photo_url), class: "avatar-large" %>
+                <p><%=  order.user.first_name %> </p>
+              </div>
+              <p id="padded"></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

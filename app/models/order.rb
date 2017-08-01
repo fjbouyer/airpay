@@ -7,6 +7,6 @@ class Order < ApplicationRecord
 
   validates :status, presence: true
   validates :quantity, presence: true
-  validates :total_price_excl_vat, presence: true
+  validates :total_price_incl_vat, presence: true
   validates :vat_rate, presence: true
 end

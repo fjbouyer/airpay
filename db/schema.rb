@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731164747) do
+ActiveRecord::Schema.define(version: 20170801153241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 20170731164747) do
     t.integer  "reservation_id"
     t.string   "status"
     t.integer  "quantity"
-    t.float    "total_price_excl_vat"
     t.float    "vat_rate"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "total_price_incl_vat"
     t.index ["reservation_id"], name: "index_orders_on_reservation_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 20170731164747) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "product_category_id"
-    t.float    "price_excl_vat"
     t.float    "vat_rate"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "price_incl_vat"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(version: 20170731164747) do
     t.date     "date"
     t.datetime "time"
     t.integer  "number_of_hour"
-    t.float    "price_per_hour_excl_vat"
     t.float    "vat_rate"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "price_per_hour_incl_vat"
     t.index ["sport_category_id"], name: "index_reservations_on_sport_category_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
