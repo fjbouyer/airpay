@@ -4,8 +4,8 @@
     <div class="title-container text-center">
       <div class="headline">
         <div class="title">
-          <h1>AirPay</h1>
-          <h3>Gagnez du temps. Payez avant la caisse</h3>
+          <h1 >AirPay</h1>
+          <h3 id="title-airpay">Gagnez du temps. Payez avant la caisse</h3>
         </div>
       </div>
       <div class="text-center" id="loadBannerVideoSpinner" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 4px; display: none; margin-top: 20px;">
@@ -24,21 +24,22 @@
 </div>
 
       <!-- Second part: results -->
-
-<div id="searchbar-results">
-  <div class="searchbar-flex">
-    <form action="/reservations/find" class="searchbar-background" data-remote="true">
-      <input type="text" name="reservation[creator_last_name]" id="searchbar-reservation-name"class="form-control input-lg" placeholder="Nom de la réservation">
-      <select name="reservation[sport_category]" id="searchbar-sport-category" class="form-control input-lg">
-        <%= SportCategory.all.each do |sport_category| %>
-        <option value="<%= sport_category.id %>"><%= sport_category.name %></option>
-        <% end %>
-        <input type="date" name="reservation[date]" class="form-control input-lg" id="input-date">
-        <input type="submit" class="btn btn-danger btn-lg" id="searchbar-submit" value="Chercher">
-      </form>
-    </div>
-    <div id="reservation-result">
-    </div>
+<div class="searchbar-results-center">
+  <div id="searchbar-results">
+    <div class="searchbar-flex">
+      <form action="/reservations/find" class="searchbar-background" data-remote="true">
+        <input type="text" name="reservation[creator_last_name]" id="searchbar-reservation-name"class="form-control input-lg" placeholder="Nom de la réservation">
+        <select name="reservation[sport_category]" id="searchbar-sport-category" class="form-control input-lg">
+          <%= SportCategory.all.each do |sport_category| %>
+          <option value="<%= sport_category.id %>"><%= sport_category.name %></option>
+          <% end %>
+          <input type="date" name="reservation[date]" class="form-control input-lg" id="input-date">
+          <input type="submit" class="btn btn-danger btn-lg" id="searchbar-submit" value="Chercher">
+        </form>
+      </div>
+      <div id="reservation-result">
+      </div>
+  </div>
 </div>
 
       <!-- Third part: steps -->
@@ -49,66 +50,30 @@
     <p>N'attendez plus d'être à la caisse pour payer ! </p>
   </div>
   <div class="photo-banner">
-    <div>
-      <%= image_tag 'run.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'danse.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'tennis.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'pilates.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'volley.png', class: "photo-perso" %>
+    <div class="photo-banner-sticky" id="running">
+      <%= image_tag 'run.png', id: "photo-running" %>
     </div>
   </div>
 </div>
 <div class="banner-home" id="banner-green">
   <div class="banner-home-content text-center" >
     <h3>1. Trouvez votre réservation</h3>
-    <p>En renseignant le nom de la personne qui a réservé, la sport et la date</p>
+    <p>...en renseignant le nom de la personne qui a réservé, le sport et la date</p>
   </div>
   <div class="photo-banner">
-    <div>
-      <%= image_tag 'vide.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png', class: "photo-perso" %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png', class: "photo-perso" %>
+     <div class="photo-banner-sticky" id="tennis">
+      <%= image_tag 'tennis.png', id: "photo-tennis" %>
     </div>
   </div>
 </div>
 <div class="banner-home" id="banner-purple">
   <div class="banner-home-content text-center" >
-    <h3>2. Vérifiez les infos</h3>
-    <p>Découvrez qui a déjà payé et partagez la page</p>
+    <h3>2. Vérifiez les infos de la réservation</h3>
+    <p>...et découvrez qui a déjà payé</p>
   </div>
   <div class="photo-banner">
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
+    <div class="photo-banner-sticky" id="volley">
+      <%= image_tag 'volley.png', id: "photo-volley" %>
     </div>
   </div>
 </div>
@@ -118,43 +83,19 @@
     <p>Et choisissez votre mode de paiement</p>
   </div>
   <div class="photo-banner">
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
+    <div class="photo-banner-sticky" id="danse">
+      <%= image_tag 'danse.png', id: "photo-danse" %>
     </div>
   </div>
 </div>
 <div class="banner-home" id="banner-red">
   <div class="banner-home-content text-center" >
     <h3>4. Accédez au détail de la réservation</h3>
-    <p>Et partagez l'info à vos amis</p>
+    <p>Partagez l'info à vos amis</p>
   </div>
-  <div class="photo-banner">
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
-    </div>
-    <div>
-      <%= image_tag 'vide.png' %>
+  <div>
+    <div class="photo-banner-sticky text-center" id="pilates">
+      <%= image_tag 'pilates.png', id: "photo-pilates" %>
     </div>
   </div>
 </div>
