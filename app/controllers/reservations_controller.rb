@@ -13,6 +13,8 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    @sport_category = SportCategory.find(@reservation.sport_category_id)
+    @orders = @reservation.orders.where(status: "Payé")
   end
 
 end

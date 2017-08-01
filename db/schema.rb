@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724171729) do
+ActiveRecord::Schema.define(version: 20170731164747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170724171729) do
     t.integer  "sport_category_id"
     t.integer  "user_id"
     t.date     "date"
-    t.date     "time"
+    t.datetime "time"
     t.integer  "number_of_hour"
     t.float    "price_per_hour_excl_vat"
     t.float    "vat_rate"
@@ -83,8 +83,9 @@ ActiveRecord::Schema.define(version: 20170724171729) do
 
   create_table "sport_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "minimum_players"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170724171729) do
     t.string   "last_name"
     t.integer  "postal_code"
     t.string   "phone_number"
+    t.string   "photo_url"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
