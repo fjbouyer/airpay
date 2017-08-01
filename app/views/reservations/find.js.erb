@@ -1,0 +1,8 @@
+
+  // Create a paragraph for the new reservation. But hide it.
+  var result = $("<%= j render 'reservations/results', user_id: @creator_id, sport_category_id: @sport_category, date: @date %>").hide();
+  // Add it to the DOM. It's still hidden.
+  $('#reservation-result').append(result);
+  // Show the new review with an animation!
+  $('#reservation-result').html("<%= j render 'reservations/results', user_id: nil %>")
+

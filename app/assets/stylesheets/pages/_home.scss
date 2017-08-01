@@ -2,3 +2,340 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+ .video-container .title-container {
+  z-index: 1000;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.title-container .headline {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+  align-items: top;
+  border-radius: $border-radius-large;
+
+}
+.searchbar-results-center {
+  display: flex;
+  justify-content: space-around;
+}
+
+#searchbar-results {
+  padding: 0;
+  margin: 0;
+  margin-top: -50vh;
+  position: absolute;
+  z-index:100000;
+}
+
+@media (max-width: 600px) {
+  .searchbar-background {
+    flex-direction: column;
+  }
+  .card-result {
+    flex-direction: column;
+  }
+  #title-airpay {
+    font-size: 20px;
+  }
+}
+
+.searchbar-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchbar-background {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $gray;
+  width: 70vw;
+  border-radius: $border-radius-large;
+  padding: 3px;
+  input, select {
+    margin: 3px;
+  }
+}
+
+#searchbar-reservation-name {
+  flex: 1 1 auto;
+}
+
+#searchbar-sport-category {
+  flex: 0 0 20%;
+}
+
+#input-date {
+  flex: 0 0 20%;
+}
+
+#searchbar-submit {
+  flex: 0 0 20%;
+}
+
+.search-result-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $gray;
+  padding: 20px 0;
+}
+
+.search-result {
+  z-index: 1100;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $gray;
+  margin: 3px 0;
+  padding: 0;
+  width: 840px;
+  border-radius: $border-radius-large;
+}
+
+.resa-center {
+  font-size: 20px;
+  line-height: 1.333333;
+  font-weight: 550;
+}
+
+.resa-search {
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color:$gray;
+  background-color: white;
+  width: 830px;
+  height: 49px;
+  padding:0;
+  margin: 3px;
+  border-radius: $border-radius-large;
+  p {
+    padding: 5px;
+    margin: 0;
+  }
+}
+
+.resa-search:hover {
+  background-color: rgba(255,255,255,0.8)
+}
+
+
+#container-searchbar {
+  width: auto;
+}
+
+.banner-home {
+  background-size: cover;
+  height: 80vh;
+}
+
+.banner-home-content h3 {
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: bolder;
+  color: white;
+  margin-top: 0;
+  padding-top: 50px
+}
+
+.banner-home-content p {
+  margin-top: 30px;
+  font-size: 17px;
+  line-height: 20px;
+  color: white;
+}
+
+.datepicker {
+
+}
+
+.headline .title h1 {
+  font-weight: bolder;
+  font-size: 65px;
+  letter-spacing: 10px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 2px $gray;
+}
+
+.headline .title h3 {
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: .1px;
+  line-height: 1.1;
+  text-shadow: 1px 1px 1px $gray;
+}
+
+#banner-orange {
+  background-color: $orange;
+  position: relative;
+}
+
+#banner-green {
+  background-color: $green;
+  position: relative;
+}
+
+#banner-purple {
+  background-color: $purple;
+  position: relative;
+}
+
+#banner-blue {
+  background-color: $blue;
+  position: relative;
+}
+
+#banner-red {
+  background-color: $red;
+  position: relative;
+  height: 100vh;
+}
+
+.photo-banner {
+  width: 100%;
+  z-index: 1000;
+  height: 100vh;
+}
+
+.photo-banner-sticky {
+  position: sticky;
+}
+
+#photo-running {
+  width: 300px;
+}
+
+#running {
+  top: 0;
+  left:0;
+  margin-left: 50px;
+  margin-top:50px;
+}
+
+#photo-tennis {
+  width: 300px;
+  position: absolute;
+  right: 50px;
+  margin-bottom: 0;
+}
+
+#tennis {
+  top: 0;
+  left:0;
+}
+
+#photo-volley {
+  width: 300px;
+  position: absolute;
+  margin-bottom: 0;
+}
+
+#volley {
+  top: 0;
+  left:0;
+  margin-left: 50px;
+  margin-bottom: -10px;
+}
+
+#photo-danse {
+  width: 300px;
+  position: absolute;
+  right: 50px;
+  margin-bottom: 0;
+}
+
+#danse {
+  top: 0;
+  left:0;
+}
+
+#photo-pilates {
+  width: 700px;
+}
+
+#pilates {
+  margin-top:155px;
+}
+
+
+.link-result {
+  color:white;
+}
+
+.link-result:hover {
+  text-decoration: none;
+  color:white;
+}
+
+.list-results {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+
+}
+
+.card-result {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 250px;
+  width: 60vw;
+  margin: 0 auto;
+  background-color: $green;
+  border-radius: $border-radius-large;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-result-background {
+  width: 70vw;
+  background-color: $gray;
+  border-radius: $border-radius-large;
+  padding: 20px 0 20px 0;
+  margin: auto;
+}
+
+#picto-result {
+  width: 50px;
+  height: 50px
+}
+
+.card-result-picto-title {
+  width: 120px;
+  padding: 20px;
+  p {
+    margin: 5px 0 0 0;
+  }
+}
+
+.card-result-name-reservation {
+  flex: 1 1 auto;
+  padding: 0 0 0 20px;
+  text-align: left;
+  h4 {
+    margin-top: 0;
+    font-weight: 600;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+}
+
+.card-result-date-hour {
+  padding: 0 20px 0 0;
+  h5 {
+    margin-top: 20px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+}
+

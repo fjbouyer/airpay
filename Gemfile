@@ -19,6 +19,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'bootstrap-datepicker-rails', '>= 0.6.21'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

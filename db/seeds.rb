@@ -29,102 +29,293 @@ SportCategory.destroy_all
 puts "Start populating db with seeds"
 
 puts "Start SportCategory"
-foot_category = SportCategory.create!(name: "Football")
-tennis_category = SportCategory.create!(name: "Tennis")
+foot_category = SportCategory.create!(name: "Foot5", minimum_players: 10)
+padel_category = SportCategory.create!(name: "Padel", minimum_players: 4)
+squash_category = SportCategory.create!(name: "Squash", minimum_players: 2)
+bad_category = SportCategory.create!(name: "Badminton", minimum_players: 2)
 
 puts "Start ProductCategory"
 boisson_category = ProductCategory.create!(name: "Boissons")
-loc_category = ProductCategory.create!(name: "Location")
+loc_category = ProductCategory.create!(name: "Location de matériel")
+vente_category = ProductCategory.create!(name: "Vente de matériel")
+food_category = ProductCategory.create!(name: "Petite faim")
 
 puts "Start User"
-adrien = User.create!(first_name: "Adrien",
-              last_name: "Larere",
+
+julien = User.create!(first_name: "Julien",
+              last_name: "Vanderstock",
               postal_code: 44000,
               phone_number: "0987654321",
-              email: "adrien.larere@gmail.com",
+              email: "julien@gmail.com",
+              photo_url: "avatar1.jpg",
               password: "secret")
 
-vincent = User.create!(first_name: "Vincent",
-              last_name: "HR",
+jo = User.create!(first_name: "François-Joseph",
+              last_name: "Bouyer",
               postal_code: 44000,
               phone_number: "0987654321",
-              email: "vince.hr@gmail.com",
+              email: "jo@gmail.com",
+              photo_url: "avatar2.jpg",
               password: "secret")
+
+john = User.create!(first_name: "John",
+              last_name: "Lennon",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "john@gmail.com",
+              photo_url: "avatar3.jpg",
+              password: "secret")
+
+pierre = User.create!(first_name: "Pierre",
+              last_name: "Maison",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "pierre@gmail.com",
+              photo_url: "avatar4.jpg",
+              password: "secret")
+paul = User.create!(first_name: "Paul",
+              last_name: "Cartonier",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "paul@gmail.com",
+              photo_url: "avatar5.jpg",
+              password: "secret")
+jean = User.create!(first_name: "Jean",
+              last_name: "Janet",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "jean@gmail.com",
+              photo_url: "avatar6.jpg",
+              password: "secret")
+
+guillaume = User.create!(first_name: "Guillaume",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "guillaume@gmail.com",
+              photo_url: "avatar7.jpg",
+              password: "secret")
+matthieu = User.create!(first_name: "Mathieu",
+              last_name: "Bernard",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "matthieu@gmail.com",
+              photo_url: "avatar8.jpg",
+              password: "secret")
+cedric = User.create!(first_name: "Cédric",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "cedric@gmail.com",
+              photo_url: "avatar9.jpg",
+              password: "secret")
+augustin = User.create!(first_name: "Augustin",
+              last_name: "Michel",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "augustin@gmail.com",
+              photo_url: "avatar10.jpg",
+              password: "secret")
+raphael = User.create!(first_name: "Raphaël",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "raphael@gmail.com",
+              photo_url: "avatar11.jpg",
+              password: "secret")
+thibault = User.create!(first_name: "Thibault",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "thibault@gmail.com",
+              photo_url: "avatar12.jpg",
+              password: "secret")
+loic = User.create!(first_name: "Loïc",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "loic@gmail.com",
+              photo_url: "avatar13.jpg",
+              password: "secret")
+yann = User.create!(first_name: "yann",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "yann@gmail.com",
+              photo_url: "avatar14.jpg",
+              password: "secret")
+baptiste = User.create!(first_name: "Baptiste",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "baptiste@gmail.com",
+              photo_url: "avatar15.jpg",
+              password: "secret")
+valentin = User.create!(first_name: "Valentin",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "valentin@gmail.com",
+              photo_url: "avatar16.jpg",
+              password: "secret")
+antoine = User.create!(first_name: "Antoine",
+              last_name: "Lefou",
+              postal_code: 44000,
+              phone_number: "0987654321",
+              email: "antoine@gmail.com",
+              photo_url: "avatar17.jpg",
+              password: "secret")
+
+
 
 puts "Start Reservation"
 reservation_1 = Reservation.create!(sport_category: foot_category,
-                                    creator: adrien,
-                                    date: Date.new,
-                                    time: Date.new,
+                                    creator: jo,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 19, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_cent_incl_vat: 20,
+                                    price_per_hour_excl_vat: 8,
                                     vat_rate: 0.2)
 
-reservation_2 = Reservation.create!(sport_category: foot_category,
-                                    creator: vincent,
-                                    date: Date.new,
-                                    time: Date.new,
+reservation_2 = Reservation.create!(sport_category: padel_category,
+                                    creator: julien,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 18, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_cent_incl_vat: 20,
+                                    price_per_hour_excl_vat: 8,
                                     vat_rate: 0.2)
 
-puts "Start Message"
-message_1 = Message.create!(content: "Trop bien cette appli!",
-                            user: adrien,
-                            reservation: reservation_1)
+reservation_3 = Reservation.create!(sport_category: foot_category,
+                                    creator: jo,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 17, 00),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
 
-message_2 = Message.create!(content: "Trop ouf cette appli!",
-                            user: vincent,
-                            reservation: reservation_2)
+reservation_4 = Reservation.create!(sport_category: bad_category,
+                                    creator: julien,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 20, 30),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
+
+reservation_5 = Reservation.create!(sport_category: squash_category,
+                                    creator: jo,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 19, 30),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
+
+reservation_6 = Reservation.create!(sport_category: foot_category,
+                                    creator: julien,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 20, 00),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
+
+reservation_7 = Reservation.create!(sport_category: squash_category,
+                                    creator: julien,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 20, 30),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
+
+reservation_8 = Reservation.create!(sport_category: bad_category,
+                                    creator: jo,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 21, 00),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
+reservation_9 = Reservation.create!(sport_category: padel_category,
+                                    creator: jo,
+                                    date: Date.new(2017,8,4),
+                                    time: DateTime.new(2017,8,4, 15, 00),
+                                    number_of_hour: 2,
+                                    price_per_hour_excl_vat: 8,
+                                    vat_rate: 0.2)
 
 puts "Start Order"
 order_1 = Order.create!(reservation: reservation_1,
-                        user: adrien,
-                        person_quantity: 2,
-                        total_price_cent_incl_vat: 42,
-                        reservation_vat_rate: 0.2,
-                        status: "En attente",
-                        address: "homeless",
-                        postal_code: "42",
-                        city: "lol",
-                        first_name: "mdr",
-                        last_name: "haha",
-                        phone_number: "0987654321",
-                        email: "lol@lol.lol")
+                        user: jo,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_2 = Order.create!(reservation: reservation_1,
+                        user: julien,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_3 = Order.create!(reservation: reservation_1,
+                        user: john,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_4 = Order.create!(reservation: reservation_1,
+                        user: pierre,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_5 = Order.create!(reservation: reservation_1,
+                        user: paul,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_6 = Order.create!(reservation: reservation_1,
+                        user: jean,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_7 = Order.create!(reservation: reservation_1,
+                        user: loic,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
+order_8 = Order.create!(reservation: reservation_1,
+                        user: baptiste,
+                        quantity: 1,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
 
 order_2 = Order.create!(reservation: reservation_2,
-                        user: vincent,
-                        person_quantity: 4,
-                        total_price_cent_incl_vat: 42,
-                        reservation_vat_rate: 0.2,
-                        status: "Payé",
-                        address: "homeless",
-                        postal_code: "42",
-                        city: "lol",
-                        first_name: "mdr",
-                        last_name: "haha",
-                        phone_number: "0987654321",
-                        email: "lol@lol.lol")
+                        user: antoine,
+                        quantity: 2,
+                        total_price_excl_vat: 10,
+                        vat_rate: 0.2,
+                        status: "Payé")
 
 puts "Start Product"
-bzh_cola = Product.create!(name: "Breizh Cola",
+powerade = Product.create!(name: "Powerade",
                             product_category: boisson_category,
                             price_cent_incl_vat: 2,
                             vat_rate: 0.2)
 
-bierre = Product.create!(name: "Bierre",
+biere = Product.create!(name: "Bière",
                             product_category: boisson_category,
                             price_cent_incl_vat: 2,
                             vat_rate: 0.2)
 
 puts "Start OrderProduct"
-OrderProduct.create!(product: bzh_cola,
+OrderProduct.create!(product: powerade,
                       order: order_1,
                       quantity: 3,
                       product_price_cent_incl_vat: 2,
                       product_vat_rate: 0.2)
 
-OrderProduct.create!(product: bierre,
+OrderProduct.create!(product: biere,
                       order: order_1,
                       quantity: 3,
                       product_price_cent_incl_vat: 2,

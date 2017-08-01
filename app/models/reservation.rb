@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :sport_category
   belongs_to :creator, class_name: User, foreign_key: :user_id
+  has_many :orders
 
   validates :date, presence: true
   validates :time, presence: true
