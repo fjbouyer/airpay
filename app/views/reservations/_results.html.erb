@@ -5,15 +5,22 @@
      <div class="text-center card-result-background">
       <div class="card-result">
         <div class="card-result-picto-title">
-          <%= image_tag "pictos_foot.png", class:"img-rounded", id:"picto-result"%>
-          <p><%= reservation.sport_category.name %></p>
+          <% if reservation.sport_category.name == "Foot5" %>
+          <%= image_tag "foot-gray.png", class:"img-rounded", id:"picto-result"%>
+          <% elsif reservation.sport_category.name == "Padel" %>
+          <%= image_tag "padel-gray.png", class:"img-rounded", id:"picto-result"%>
+          <% elsif reservation.sport_category.name == "Badminton" %>
+          <%= image_tag "bad-gray.png", class:"img-rounded", id:"picto-result"%>
+          <% elsif reservation.sport_category.name == "Squash" %>
+          <%= image_tag "squash-gray.png", class:"img-rounded", id:"picto-result"%>
+          <% end  %>
         </div>
         <div class='card-result-name-reservation'>
-          <h3><%= reservation.creator.last_name.capitalize %> <%= reservation.creator.first_name.capitalize %></h3>
-          <p>réservation # <%= reservation.id  %></p>
+          <h4><%= reservation.creator.last_name.capitalize %> <%= reservation.creator.first_name.capitalize %></h4>
+          <p class="hidden-xs">réservation # <%= reservation.id  %></p>
         </div>
         <div class='card-result-date-hour'>
-          <h4><%= reservation.date.strftime('%d/%m/%Y') %></h4>
+          <h5><%= reservation.date.strftime('%d/%m/%Y') %></h5>
           <p><%= reservation.time.strftime('%H:%M') %></p>
         </div>
       </div>
