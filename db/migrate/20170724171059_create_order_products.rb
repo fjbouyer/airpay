@@ -4,9 +4,8 @@ class CreateOrderProducts < ActiveRecord::Migration[5.0]
       t.references :product, foreign_key: true
       t.references :order, foreign_key: true
       t.integer :quantity
-      t.float :product_price
-      t.float :total_price
-      t.float :vat_rate
+      t.integer :product_price_cent_incl_vat
+      t.float :product_vat_rate
 
       t.timestamps
     end

@@ -4,15 +4,16 @@ Rails.application.routes.draw do
   get "/reservations/find"
   
   devise_for :users
-   resources :reservations, only: [:show] do
-    resources :orders, only: [:new, :create]
-  end
-  
-  as :user do
+   as :user do
     get 'account/profile/edit', to: 'devise/registrations#edit'
     patch 'account/profile', :as => :user_root
   end
-
+  
+  resources :reservations, only: [:show] do
+    resources :orders, only: [:new, :create]
+    resources :payments, only: [:new, :create]
+  end
+  
   namespace :account do
     resource :profile, only: [:show]
     resources :orders, only: [:index, :show]

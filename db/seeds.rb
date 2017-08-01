@@ -300,27 +300,25 @@ order_2 = Order.create!(reservation: reservation_2,
 puts "Start Product"
 powerade = Product.create!(name: "Powerade",
                             product_category: boisson_category,
-                            price_excl_vat: 2,
+                            price_cent_incl_vat: 2,
                             vat_rate: 0.2)
 
 biere = Product.create!(name: "Bière",
                             product_category: boisson_category,
-                            price_excl_vat: 2,
+                            price_cent_incl_vat: 2,
                             vat_rate: 0.2)
 
 puts "Start OrderProduct"
 OrderProduct.create!(product: powerade,
                       order: order_1,
                       quantity: 3,
-                      product_price: 2,
-                      total_price: 6,
-                      vat_rate: 0.2)
+                      product_price_cent_incl_vat: 2,
+                      product_vat_rate: 0.2)
 
 OrderProduct.create!(product: biere,
                       order: order_1,
                       quantity: 3,
-                      product_price: 2,
-                      total_price: 6,
-                      vat_rate: 0.2)
+                      product_price_cent_incl_vat: 2,
+                      product_vat_rate: 0.2)
 
 puts "Seeds has been planted =)"
