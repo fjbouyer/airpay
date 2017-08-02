@@ -14,15 +14,15 @@
         <tr data-reservationid="<%= @order.reservation.id %>">
           <td><%= "#{@order.reservation.sport_category.name}  -  #{@order.reservation.number_of_hour} heures " %>
             - Pour 1 personne.</td>
-          <td><%= @reservation_price_per_person %></td>
+          <td><%= humanized_money(@reservation_price_per_person) %>€</td>
           <td><span class="reservation-person-number">1</span></td>
-          <td><span class="reservation-total-price"><%= @reservation_price_per_person %></span></td>
+          <td><span class="reservation-total-price"><%= humanized_money(@reservation_price_per_person) %></span>€</td>
           <td></td>
         </tr>
       </tbody>
     </table>
   </div>
   <div id="recap-product-list" class="col-xs-3 col-xs-offset-9">
-    <p>Prix totale : <span id="total-price"><%= @reservation_price_per_person %></span> euros</p>
+    <p>Prix total : <span id="total-price"><%= humanized_money(@reservation_price_per_person) %></span>€</p>
   </div>
 </div>

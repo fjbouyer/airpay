@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
       @reservation_item_title = " #{@order.reservation.sport_category.name} -
                                   #{@order.reservation.number_of_hour} heures -
                                   Pour <span class=\"reservation-person-number\">1</span> personne."
-      @reservation_price_per_person = @order.reservation.number_of_hour * @order.reservation.price_per_hour_incl_vat_cents
+      @reservation_price_per_person = @order.reservation.number_of_hour * @order.reservation.price_per_hour_incl_vat
       @title = "Réservation #{@reservation.id} - #{@reservation.sport_category.name} le #{@reservation.time}"
 
     end
@@ -85,7 +85,9 @@ class OrdersController < ApplicationController
         total_price = calculated_total_price_incl_vat_cents + price_of_reservation
 
         # Si ils correspondent, on met a jour l'order et on passe à la suite
-        if total_price == cart_infos["total_price"]
+        p total_price
+        p cart_infos["total_price"]
+        if (total_price/100) == cart_infos["total_price"]
           @order.update(status: "En attente", total_price_incl_vat_cents: total_price)
           redirect_to new_reservation_payment_path(@reservation)
         else
