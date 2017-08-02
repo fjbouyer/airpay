@@ -1,29 +1,15 @@
 <% content_for :title, "Airpay - Votre réservation" %>
 
-<div class="banner-show" style="background-image: url(<%= image_path("foot.jpg") %>);">
+<div class="banner-show" style="background-image: url(<%= image_path("foot2.jpg") %>);">
   <div id="container-body">
     <div class="row" >
       <div class="col-xs-12 col-sm-7 col-sm-offset-1" id="card-left-padding">
         <div class="reservation-card-left-confirmed">
-          <div class="col-xs-12 col-sm-6 card-padding">
-            <div class="info-resa">
-              <div   style="background-image: linear-gradient(-225deg, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 50%), url(<%= image_path(@picto) %>); background-size:cover; height:350px;">
-                <div class="text-opacity">
-                  info reservation
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 card-padding">
-            <div class="info-paiement">
-              info paiement
-            </div>
-          </div>
           <div class="col-xs-12 card-padding">
             <div class="share-social text-center">
               <div id="social-title">
                 <h4> Partage l'info à tes amis </h4>
-                 <p>surtout à ceux qui arrivent toujours en retard</p>
+                <p>surtout à ceux qui arrivent toujours en retard</p>
               </div>
               <div class="footer-social text-center">
                 <div class="share-links">
@@ -40,14 +26,47 @@
               </div>
             </div>
           </div>
+          <div class="col-xs-12 col-sm-6 card-padding">
+            <div class="info-resa">
+              <div   style="background-image: linear-gradient(-225deg, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 50%), url(<%= image_path(@picto) %>); background-size:cover; height:350px;">
+                <div class="text-opacity">
+                  <div class="text-center">
+                    <h2>Terrain n°2</h2>
+                    <p><%= @reservation.date.strftime('%d/%m/%Y')%></p>
+                    <p id="event" data-time="<%= @reservation.time.strftime('%Y-%m-%d %H:%M')%>"><%= @reservation.time.strftime('%H:%M')%></p>
+                    <h6>Votre match commence dans: </p>
+                    <div id="countdown"></div>
+                    <h3><span>Bon match!</span></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 card-padding">
+            <div class="info-paiement">
+              <div class="flex-info-paiement">
+                <h2>Récapitulatif de paiement CB</h2>
+                <p>Identifiant commerçant: <span>003506</span></p>
+                <p>Montant: <span>9,00€</span></p>
+                <p>N° de transaction: <span>0123456789</span></p>
+                <p>Date / Heure: <span><%= Time.now %></span></p>
+                <p>N° de carte: <span>**** **** **** 4242</span></p>
+              </div>
+              <div class="flex-icon-cb">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
 
         </div>
+
       </div>
+
       <div class="col-xs-12 col-sm-3 card-padding">
         <div class="reservation-card-right-confirmed text-center">
           <h4>Déjà payé: <%= @reservation.orders.count %> / <%= @sport_category.minimum_players%></h4>
           <div class="photo-avatar-logo">
-            <div id="photo-align-left-confirmed">
+            <div class="last-avatar" id="photo-align-left-confirmed">
               <% @orders.each do |order|  %>
               <div class="avatar-name-flex">
                 <%= image_tag (order.user.photo_url), class: "avatar-large" %>
@@ -60,3 +79,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
