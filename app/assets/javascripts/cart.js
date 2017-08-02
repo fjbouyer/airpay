@@ -42,6 +42,9 @@ $(document).ready(function() {
     console.log("Check cart");
     cartSnapshot();
   });
+
+  $(".cat:first-child").addClass("cat-active");
+  $(".cat-content:first-child").removeClass("hidden");
 });
 
 function addProductToTable(product_id, product_name, product_price) {
