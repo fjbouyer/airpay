@@ -4,36 +4,125 @@
 }
 
 .product-list-category h3 {
-  background-color: black;
+  background-color: $gray;
   color: white;
   padding: 10px 0;
   margin: 0;
   font-size: 17px;
   font-weight: bold;
+  border-radius: 3px 3px 0 0;
 }
 
-.product-list-category {
-  margin-bottom: 10px;
-  height: 58px;
+.cat {
+  padding: 5px 0;
 }
 
 .product-category-block {
   background-color: gray;
-  margin-top: -10px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .product {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 15px;
+  width: 130px;
+}
+
+.product h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: white;
+  text-align: left;
+  padding-bottom: 4px;
 }
 
 .product img {
-  width: 100%;
+  width: 100px;
+  border-radius: 5px;
 }
 
 .shopping-cart-product-card-description {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 3px;
   align-items: center;
+}
+
+.shopping-cart-product-card-description p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.product .addToCart {
+  margin-top: -8px;
+}
+
+.shopping-cart table {
+  margin-top: 15px;
+  width: 100%;
+  color: black;
+}
+
+.shopping-cart table tbody tr:nth-child(2n+2) {
+  background-color: $light_gray;
+}
+
+.shopping-cart thead {
+  border-top: 2px $gray solid;
+  border-bottom: 2px $gray solid;
+}
+
+.shopping-cart thead tr td {
+  padding: 15px 0;
+}
+
+.shopping-cart tbody tr td {
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.shopping-cart tbody input {
+  height: 20px;
+  width: 60px;
+}
+
+#shopping-validate {
+  border-top: 2px $gray solid;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+
+#recap-product-list {
+  font-weight: bold;
+  color: black;
+}
+
+.shopping-cart td:not(:first-child) {
+  text-align: center;
+}
+
+.shopping-cart td:first-child {
+  padding-left: 8px;
+}
+
+
+.shopping-title {
+  margin: 35px;
+}
+
+#shopping-recap-wrapper {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+}
+
+.shopping-recap {
+  margin-top: 35px;
 }

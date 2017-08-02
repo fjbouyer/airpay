@@ -9,8 +9,8 @@ class PaymentsController < ApplicationController
                           status: "En attente").last
     @order_products = @order.order_products
 
-    @price_per_person = @reservation.price_per_hour_incl_vat_cents * @reservation.number_of_hour
-    @total_price = @order.total_price_incl_vat_cents
+    @price_per_person = @reservation.price_per_hour_incl_vat * @reservation.number_of_hour
+    @total_price = @order.total_price_incl_vat
   end
 
   def create

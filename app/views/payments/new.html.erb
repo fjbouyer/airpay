@@ -1,60 +1,62 @@
-<h1>Recapitulatif et payer</h1>
+<% content_for :title, "Airpay - Shopping" %>
+
 
 <div class="container" id="recap">
   <div class="row">
-    <div class="shopping-cart">
-      <div class="col-xs-12">
-        <table>
-          <thead>
-            <tr>
-              <td>Designation</td>
-              <td>Prix unitaire</td>
-              <td>Quantité</td>
-              <td>Prix total</td>
-            </tr>
-          </thead>
-          <tbody id="table-product-list">
-            <tr>
-              <td><%= "#{@reservation.sport_category.name}  -  #{@reservation.number_of_hour} heures " %>
-                - Pour <%= @order.person_quantity %> personne.</td>
-              <td><%= @price_per_person %></td>
-              <td><span class="reservation-person-number">1</span></td>
-              <td><span class="reservation-total-price"><%= @price_per_person * @order.person_quantity %></span></td>
-            </tr>
-            <% @order_products.each do |order_product| %>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div id="shopping-recap-wrapper">
+        <h2 class="text-center shopping-title">Recapitulatif et paiement</h2>
+        <div class="shopping-cart">
+          <table>
+            <thead>
               <tr>
-                <td><%= order_product.product.name %></td>
-                <td><%= order_product.product.price_incl_vat_cents %> euros</td>
-                <td><%= order_product.quantity %></td>
-                <td><%= order_product.product.price_incl_vat_cents * order_product.quantity %> euros</td>
+                <td>Designation</td>
+                <td>Prix unitaire</td>
+                <td>Quantité</td>
+                <td>Prix total</td>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div id="recap-product-list" class="col-xs-3 col-xs-offset-9">
-        <p>Prix totale : <span id="total-price"><%= @total_price %></span> euros</p>
+            </thead>
+            <tbody id="table-product-list">
+              <tr>
+                <td><%= "#{@reservation.sport_category.name}  -  #{@reservation.number_of_hour} heures " %>
+                  - Pour <%= @order.person_quantity %> personne.</td>
+                <td><%= humanized_money(@price_per_person) %>€</td>
+                <td><span class="reservation-person-number">1</span></td>
+                <td><span class="reservation-total-price"><%= humanized_money(@price_per_person * @order.person_quantity) %></span>€</td>
+              </tr>
+              <% @order_products.each do |order_product| %>
+                <tr>
+                  <td><%= order_product.product.name %></td>
+                  <td><%= humanized_money(order_product.product.price_incl_vat) %> €</td>
+                  <td><%= order_product.quantity %></td>
+                  <td><%= humanized_money(order_product.product.price_incl_vat * order_product.quantity) %> €</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div id="shopping-validate" class="">
+          <div class="row text-center">
+            <!-- <div class="col-xs-4">
+            <p>Modifier</p>
+            </div> -->
+            <div id="recap-product-list" class="col-xs-6 shopping-recap">
+              <p>Prix total : <span id="total-price"><%= @total_price %></span> €</p>
+            </div>
+            <div class="col-xs-6 shopping-recap">
+              <%= form_tag reservation_payments_path(@reservation) do %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="My Teddy"
+              data-description="Teddy <%= "test" %>"
+              data-email="<%= current_user.email %>"
+              data-amount="<%= 42 %>"
+              data-currency="<%= "euro" %>"></script>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div id="shopping-validate">
-      <div class="col-xs-6">
-        <%= form_tag reservation_payments_path(@reservation) do %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="My Teddy"
-            data-description="Teddy <%= "test" %>"
-            data-email="<%= current_user.email %>"
-            data-amount="<%= 42 %>"
-            data-currency="<%= "euro" %>"></script>
-        <% end %>
-      </div>
-      <div class="col-xs-6">
-        <p>Modifier</p>
-      </div>
-    </div>
-  </div>
-
 </div>

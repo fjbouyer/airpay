@@ -3,7 +3,7 @@
     <% @products.each do |category, array| %>
       <div class="col-xs-6 col-sm-3">
         <div class="product-list-category">
-          <a class="cat" data-target="#<%= category.name.gsub(/ /, '') %>">
+          <a class="cat" data-target="#<%= category.name.gsub(/[()\. ]/, '') %>">
             <h3><%= category.name %></h3>
           </a>
         </div>
@@ -13,21 +13,21 @@
 
   <div class"products-list">
     <% @products.each do |category, array| %>
-      <div class="product-category-block cat-content hidden" id="<%= category.name.gsub(/ /, '') %>">
+      <div class="product-category-block cat-content hidden" id="<%= category.name.gsub(/[()\. ]/, '') %>">
         <div class="row">
           <% if array.empty? %>
             <p>Pas de produits dans cette catgorie</p>
           <% else %>
             <% array.each do |product| %>
-              <div class="col-xs-4">
+              <div class="col-xs-3 col-sm-2">
                 <div class="product" data-productId="<%= product.id %>">
+                  <h3><span class="product-name"><%= product.name %></span></h3>
                   <% unless product.picture_path.nil? %>
                     <%= image_tag product.picture_path %>
                   <% end %>
-                  <h3><span class="product-name"><%= product.name %></span></h3>
                   <div class="shopping-cart-product-card-description">
                     <p><span class="product-price"><%= humanized_money(product.price_incl_vat) %></span>€</p>
-                    <span class="btn btn-primary addToCart">+</span>
+                    <span class="btn btn-primary btn-xs addToCart">+</span>
                   </div>
                 </div>
               </div>
