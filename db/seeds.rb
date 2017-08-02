@@ -316,18 +316,6 @@ order_8 = Order.create!(reservation: reservation_1,
                         phone_number: "0987654321",
                         email: "thisis@a.test")
 
-order_2 = Order.create!(reservation: reservation_2,
-                        user: antoine,
-                        person_quantity: 2,
-                        total_price_incl_vat_cents: 1000,
-                        reservation_vat_rate: 0.2,
-                        status: "Payé",
-                        postal_code: "12345",
-                        first_name: "toto",
-                        last_name: "tata",
-                        phone_number: "0987654321",
-                        email: "thisis@a.test")
-
 puts "Start Product"
 powerade = Product.create!(name: "Coca Cola 33cl",
                             product_category: boisson_category,

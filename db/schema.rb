@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170801153241) do
     t.json     "payment"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "total_price_incl_vat"
     t.index ["reservation_id"], name: "index_orders_on_reservation_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170801153241) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "picture_path"
+    t.string   "price_incl_vat"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170801153241) do
     t.float    "vat_rate"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "price_per_hour_incl_vat"
     t.index ["sport_category_id"], name: "index_reservations_on_sport_category_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
