@@ -24,8 +24,8 @@ class ReservationsController < ApplicationController
         @picto = "padel-crop.png"
       when "Squash"
         @picto = "squash-crop.png"
-      when "Foot5"
-        @picto = "foot-crop.png"
+      when "Badminton"
+        @picto = "bad-crop.png"
     end
   end
 

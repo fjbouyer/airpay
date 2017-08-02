@@ -173,7 +173,7 @@ reservation_2 = Reservation.create!(sport_category: padel_category,
 
 reservation_3 = Reservation.create!(sport_category: foot_category,
                                     creator: jo,
-                                    date: Date.new(2017,8,4),
+                                    date: Date.new(2017,8,5),
                                     time: DateTime.new(2017,8,4, 17, 00),
                                     number_of_hour: 2,
                                     price_per_hour_incl_vat_cents: 800,
@@ -228,7 +228,7 @@ reservation_9 = Reservation.create!(sport_category: padel_category,
 
 puts "Start Order"
 order_1 = Order.create!(reservation: reservation_1,
-                        user: jo,
+                        user: augustin,
                         person_quantity: 1,
                         total_price_incl_vat_cents: 1000,
                         reservation_vat_rate: 0.2,
