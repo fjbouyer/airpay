@@ -9,8 +9,8 @@ class PaymentsController < ApplicationController
                           status: "En attente").last
     @order_products = @order.order_products
 
-    @price_per_person = @reservation.price_per_hour_cent_incl_vat * @reservation.number_of_hour
-    @total_price = @order.total_price_cent_incl_vat
+    @price_per_person = @reservation.price_per_hour_incl_vat_cents * @reservation.number_of_hour
+    @total_price = @order.total_price_incl_vat_cents
   end
 
   def create
@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
 
     charge = Stripe::Charge.create(
       customer:     customer,   # You should store this customer id and re-use it.
-      amount:       @order.total_price_cent_incl_vat, # or amount_pennies
+      amount:       @order.total_price_incl_vat_cents, # or amount_pennies
       description:  "Payment for teddy test",
       currency:     "Eur"# 'EUR'
     )

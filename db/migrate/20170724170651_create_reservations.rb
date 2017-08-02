@@ -6,7 +6,7 @@ class CreateReservations < ActiveRecord::Migration[5.0]
       t.date :date
       t.date :time
       t.integer :number_of_hour
-      t.integer :price_per_hour_cent_incl_vat
+      t.integer :price_per_hour_incl_vat_cents
       t.float :vat_rate
 
       t.timestamps

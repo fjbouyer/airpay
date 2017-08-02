@@ -24,9 +24,9 @@
             <% @order_products.each do |order_product| %>
               <tr>
                 <td><%= order_product.product.name %></td>
-                <td><%= order_product.product.price_cent_incl_vat %> euros</td>
+                <td><%= order_product.product.price_incl_vat_cents %> euros</td>
                 <td><%= order_product.quantity %></td>
-                <td><%= order_product.product.price_cent_incl_vat * order_product.quantity %> euros</td>
+                <td><%= order_product.product.price_incl_vat_cents * order_product.quantity %> euros</td>
               </tr>
             <% end %>
           </tbody>

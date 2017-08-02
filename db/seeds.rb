@@ -160,7 +160,7 @@ reservation_1 = Reservation.create!(sport_category: foot_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 19, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: padel_category,
@@ -168,7 +168,7 @@ reservation_2 = Reservation.create!(sport_category: padel_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 18, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_3 = Reservation.create!(sport_category: foot_category,
@@ -176,7 +176,7 @@ reservation_3 = Reservation.create!(sport_category: foot_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 17, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_4 = Reservation.create!(sport_category: bad_category,
@@ -184,7 +184,7 @@ reservation_4 = Reservation.create!(sport_category: bad_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 20, 30),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_5 = Reservation.create!(sport_category: squash_category,
@@ -192,7 +192,7 @@ reservation_5 = Reservation.create!(sport_category: squash_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 19, 30),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_6 = Reservation.create!(sport_category: foot_category,
@@ -200,7 +200,7 @@ reservation_6 = Reservation.create!(sport_category: foot_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 20, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_7 = Reservation.create!(sport_category: squash_category,
@@ -208,7 +208,7 @@ reservation_7 = Reservation.create!(sport_category: squash_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 20, 30),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_8 = Reservation.create!(sport_category: bad_category,
@@ -216,95 +216,142 @@ reservation_8 = Reservation.create!(sport_category: bad_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 21, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 reservation_9 = Reservation.create!(sport_category: padel_category,
                                     creator: jo,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 15, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat: 800,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 puts "Start Order"
 order_1 = Order.create!(reservation: reservation_1,
-                        user: cedric,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        user: jo,
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_2 = Order.create!(reservation: reservation_1,
                         user: julien,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_3 = Order.create!(reservation: reservation_1,
                         user: john,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_4 = Order.create!(reservation: reservation_1,
                         user: pierre,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_5 = Order.create!(reservation: reservation_1,
                         user: paul,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_6 = Order.create!(reservation: reservation_1,
                         user: jean,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_7 = Order.create!(reservation: reservation_1,
                         user: loic,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 order_8 = Order.create!(reservation: reservation_1,
                         user: baptiste,
-                        quantity: 1,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        person_quantity: 1,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 
 order_2 = Order.create!(reservation: reservation_2,
-                        user: augustin,
-                        quantity: 2,
-                        total_price_incl_vat: 1000,
-                        vat_rate: 0.2,
-                        status: "Payé")
+                        user: antoine,
+                        person_quantity: 2,
+                        total_price_incl_vat_cents: 10,
+                        reservation_vat_rate: 0.2,
+                        status: "Payé",
+                        postal_code: "12345",
+                        first_name: "toto",
+                        last_name: "tata",
+                        phone_number: "0987654321",
+                        email: "thisis@a.test")
 
 puts "Start Product"
-powerade = Product.create!(name: "Powerade",
+powerade = Product.create!(name: "Coca Cola 33cl",
                             product_category: boisson_category,
-                            price_cent_incl_vat: 200,
-                            vat_rate: 0.2)
+                            price_incl_vat_cents: 200,
+                            vat_rate: 0.2,
+                            picture_path: "products/coca-cola_33cl.jpg")
 
 biere = Product.create!(name: "Bière",
                             product_category: boisson_category,
-                            price_cent_incl_vat: 200,
-                            vat_rate: 0.2)
+                            price_incl_vat_cents: 200,
+                            vat_rate: 0.2,
+                            picture_path: "products/amsterdam_maximator.jpg")
 
 puts "Start OrderProduct"
 OrderProduct.create!(product: powerade,
                       order: order_1,
                       quantity: 3,
-                      product_price_cent_incl_vat: 200,
+                      product_price_incl_vat_cents: 2,
                       product_vat_rate: 0.2)
 
 OrderProduct.create!(product: biere,
                       order: order_1,
                       quantity: 3,
-                      product_price_cent_incl_vat: 200,
+                      product_price_incl_vat_cents: 2,
                       product_vat_rate: 0.2)
 
 puts "Seeds has been planted =)"
