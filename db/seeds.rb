@@ -151,20 +151,6 @@ baptiste = User.create!(first_name: "Baptiste",
               email: "baptiste@gmail.com",
               photo_url: "avatar15.jpg",
               password: "secret")
-valentin = User.create!(first_name: "Valentin",
-              last_name: "Lefou",
-              postal_code: 44000,
-              phone_number: "0987654321",
-              email: "valentin@gmail.com",
-              photo_url: "avatar16.jpg",
-              password: "secret")
-antoine = User.create!(first_name: "Antoine",
-              last_name: "Lefou",
-              postal_code: 44000,
-              phone_number: "0987654321",
-              email: "antoine@gmail.com",
-              photo_url: "avatar17.jpg",
-              password: "secret")
 
 
 
@@ -321,18 +307,6 @@ order_7 = Order.create!(reservation: reservation_1,
 order_8 = Order.create!(reservation: reservation_1,
                         user: baptiste,
                         person_quantity: 1,
-                        total_price_incl_vat_cents: 1000,
-                        reservation_vat_rate: 0.2,
-                        status: "Payé",
-                        postal_code: "12345",
-                        first_name: "toto",
-                        last_name: "tata",
-                        phone_number: "0987654321",
-                        email: "thisis@a.test")
-
-order_2 = Order.create!(reservation: reservation_2,
-                        user: antoine,
-                        person_quantity: 2,
                         total_price_incl_vat_cents: 1000,
                         reservation_vat_rate: 0.2,
                         status: "Payé",

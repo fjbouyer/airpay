@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801153153) do
+ActiveRecord::Schema.define(version: 20170802100026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170801153153) do
     t.json     "payment"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "total_price_incl_vat"
     t.index ["reservation_id"], name: "index_orders_on_reservation_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170801153153) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "picture_path"
+    t.string   "price_incl_vat"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
@@ -78,12 +80,13 @@ ActiveRecord::Schema.define(version: 20170801153153) do
     t.integer  "sport_category_id"
     t.integer  "user_id"
     t.date     "date"
-    t.date     "time"
+    t.datetime "time"
     t.integer  "number_of_hour"
     t.integer  "price_per_hour_incl_vat_cents"
     t.float    "vat_rate"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "price_per_hour_incl_vat"
     t.index ["sport_category_id"], name: "index_reservations_on_sport_category_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
