@@ -1,97 +1,32 @@
 <% content_for :title, "Airpay - Shopping" %>
 
-<% if @order.nil? %>
-  <p>Sorry, pas de reservation trouvée </p>
+<% if @reservation.nil? %>
+  <p class="text-center">Désolé, nous n'avons pas trouvé de reservation.</p>
 <% else %>
-  <h2><%= @order.status %></h2>
-<% end %>
+  <h2 class="text-center"><%= @title %></h2>
 
-<div class="container" id="app">
-  <div class="product-list">
+  <div class="container" id="app">
 
-    <div class="product-list-categories">
-      <div class="row">
-        <% @products.each do |category, array| %>
-          <div class="col-xs-6 col-sm-3">
-            <div class="product-list-category">
-              <a class="cat" data-target="#<%= category.name %>">
-                <h3><%= category.name %></h3>
-              </a>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <div class"products-list">
-        <% @products.each do |category, array| %>
-          <div class="product-category-block cat-content hidden" id="<%= category.name %>">
-            <div class="row">
-              <% if array.empty? %>
-                <p>Pas de produits dans cette catgorie</p>
-              <% else %>
-                <% array.each do |product| %>
-                  <div class="col-xs-3">
-                    <div class="product" data-productId="<%= product.id %>">
-                      <%= image_tag product.picture_path %>
-                      <h3><span class="product-name"><%= product.name %></span></h3>
-                      <p><span class="product-price"><%= product.price_cent_incl_vat %></span></p>
-                      <span class="btn btn-primary addToCart">Ajouter</span>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="product-list">
+      <%= render 'orders/product_list' %>
     </div>
-  </div>
 
-  <div class="row">
     <div class="shopping-cart">
-      <div class="col-xs-12">
-        <table>
-          <thead>
-            <tr>
-              <td>Designation</td>
-              <td>Prix unitaire</td>
-              <td>Quantité</td>
-              <td>Prix total</td>
-              <td>Supprimer element</td>
-            </tr>
-          </thead>
-          <tbody id="table-product-list">
-            <tr data-reservationid="<%= @order.reservation.id %>">
-              <td><%= "#{@order.reservation.sport_category.name}  -  #{@order.reservation.number_of_hour} heures " %>
-                - Pour 1 personne.</td>
-              <td><%= @reservation_price_per_person %></td>
-              <td><span class="reservation-person-number">1</span></td>
-              <td><span class="reservation-total-price"><%= @reservation_price_per_person %></span></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="recap-product-list" class="col-xs-3 col-xs-offset-9">
-        <p>Prix totale : <span id="total-price"><%= @reservation_price_per_person %></span> euros</p>
-      </div>
+      <%= render 'orders/shopping_table' %>
     </div>
-  </div>
 
-  <div class="row">
     <div id="shopping-validate">
-      <div class="col-xs-12">
-        <%= simple_form_for [@reservation, @order] do |f| %>
-          <%= f.input :cart_snapshot, as: :hidden %>
-          <!-- <input type="hidden" id="cart_snapshot" value="" /> -->
-          <%= f.button :submit %>
-        <% end %>
-        <!-- <form action="<%= reservation_orders_path(@reservation.id) %>" method="post">
-          <input type="submit" id="confirm-cart" value="Confirmer mon panier"/>
-        </form> -->
+      <div class="row">
+        <div class="col-xs-12">
+          <%= simple_form_for [@reservation, @order] do |f| %>
+            <%= f.input :cart_snapshot, as: :hidden %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
       </div>
     </div>
+
   </div>
-</div>
+<% end %>
 
 <%= javascript_include_tag 'cart' %>

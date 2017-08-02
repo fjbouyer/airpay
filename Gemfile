@@ -10,6 +10,7 @@ gem 'rails', '5.0.4'
 gem 'redis'
 
 gem 'stripe'
+gem 'money-rails' 
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

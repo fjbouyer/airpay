@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801144835) do
+ActiveRecord::Schema.define(version: 20170801153153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170801144835) do
     t.integer  "product_id"
     t.integer  "order_id"
     t.integer  "quantity"
-    t.integer  "product_price_cent_incl_vat"
+    t.integer  "product_price_incl_vat_cents"
     t.float    "product_vat_rate"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170801144835) do
     t.integer  "user_id"
     t.integer  "reservation_id"
     t.integer  "person_quantity"
-    t.integer  "total_price_cent_incl_vat"
+    t.integer  "total_price_incl_vat_cents"
     t.float    "reservation_vat_rate"
     t.string   "status"
     t.string   "postal_code"
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 20170801144835) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "product_category_id"
-    t.integer  "price_cent_incl_vat"
+    t.integer  "price_incl_vat_cents"
     t.float    "vat_rate"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "picture_path"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20170801144835) do
     t.date     "date"
     t.date     "time"
     t.integer  "number_of_hour"
-    t.integer  "price_per_hour_cent_incl_vat"
+    t.integer  "price_per_hour_incl_vat_cents"
     t.float    "vat_rate"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -90,8 +90,9 @@ ActiveRecord::Schema.define(version: 20170801144835) do
 
   create_table "sport_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "minimum_players"
   end
 
   create_table "users", force: :cascade do |t|
