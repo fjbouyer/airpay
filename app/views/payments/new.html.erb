@@ -47,11 +47,12 @@
               <%= form_tag reservation_payments_path(@reservation) do %>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-name="My Teddy"
-              data-description="Teddy <%= "test" %>"
+              data-locale="fr"
+              data-name="AirPay"
+              data-description="votre paiement"
               data-email="<%= current_user.email %>"
-              data-amount="<%= @order.total_price_incl_vat_cents %> €"
-              data-currency="<%= "euro" %>"></script>
+              data-amount="<%= @order.total_price_incl_vat_cents %>"
+              data-currency="EUR"></script>
               <% end %>
             </div>
           </div>
