@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170801144835) do
-
+ActiveRecord::Schema.define(version: 20170801153241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +44,7 @@ ActiveRecord::Schema.define(version: 20170801144835) do
     t.integer  "total_price_cent_incl_vat"
     t.float    "reservation_vat_rate"
     t.string   "status"
-    t.string   "address"
     t.string   "postal_code"
-    t.string   "city"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
