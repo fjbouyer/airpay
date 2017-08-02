@@ -151,20 +151,6 @@ baptiste = User.create!(first_name: "Baptiste",
               email: "baptiste@gmail.com",
               photo_url: "avatar15.jpg",
               password: "secret")
-valentin = User.create!(first_name: "Valentin",
-              last_name: "Lefou",
-              postal_code: 44000,
-              phone_number: "0987654321",
-              email: "valentin@gmail.com",
-              photo_url: "avatar16.jpg",
-              password: "secret")
-antoine = User.create!(first_name: "Antoine",
-              last_name: "Lefou",
-              postal_code: 44000,
-              phone_number: "0987654321",
-              email: "antoine@gmail.com",
-              photo_url: "avatar17.jpg",
-              password: "secret")
 
 
 
@@ -174,7 +160,7 @@ reservation_1 = Reservation.create!(sport_category: foot_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 19, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_2 = Reservation.create!(sport_category: padel_category,
@@ -182,7 +168,7 @@ reservation_2 = Reservation.create!(sport_category: padel_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 18, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_3 = Reservation.create!(sport_category: foot_category,
@@ -190,7 +176,7 @@ reservation_3 = Reservation.create!(sport_category: foot_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 17, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_4 = Reservation.create!(sport_category: bad_category,
@@ -198,7 +184,7 @@ reservation_4 = Reservation.create!(sport_category: bad_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 20, 30),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_5 = Reservation.create!(sport_category: squash_category,
@@ -206,7 +192,7 @@ reservation_5 = Reservation.create!(sport_category: squash_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 19, 30),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_6 = Reservation.create!(sport_category: foot_category,
@@ -214,7 +200,7 @@ reservation_6 = Reservation.create!(sport_category: foot_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 20, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_7 = Reservation.create!(sport_category: squash_category,
@@ -222,7 +208,7 @@ reservation_7 = Reservation.create!(sport_category: squash_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 20, 30),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 reservation_8 = Reservation.create!(sport_category: bad_category,
@@ -230,14 +216,14 @@ reservation_8 = Reservation.create!(sport_category: bad_category,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 21, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 reservation_9 = Reservation.create!(sport_category: padel_category,
                                     creator: jo,
                                     date: Date.new(2017,8,4),
                                     time: DateTime.new(2017,8,4, 15, 00),
                                     number_of_hour: 2,
-                                    price_per_hour_incl_vat_cents: 8,
+                                    price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
 
 puts "Start Order"

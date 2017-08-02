@@ -24,10 +24,18 @@
             <h5><%= @reservation.number_of_hour %> heures</h5>
           </div>
           <div id="reservation-price">
-            <h4><%= @reservation.price_per_hour_excl_vat %> € / heure</h4>
+            <h4><%= @reservation.price_per_hour_incl_vat %> € / heure</h4>
           </div>
           <div id="reservation-card-left-body-picto">
-            <%= image_tag "foot-crop.png" %>
+            <% if @reservation.sport_category.name == "Foot5" %>
+              <%= image_tag "foot-crop.png" %>
+            <% elsif @reservation.sport_category.name == "Badminton" %>
+              <%= image_tag "bad.png" %>
+            <% elsif @reservation.sport_category.name == "Padel" %>
+              <%= image_tag "padel.png" %>
+            <% elsif @reservation.sport_category.name == "Squash" %>
+              <%= image_tag "squash.png" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -38,13 +46,13 @@
             <div id="photo-align-left">
               <% @orders.each do |order|  %>
                 <div class="avatar-name-flex">
-                <%= image_tag (User.find(order.user_id).photo_url), class: "avatar-large" %>
-                <p><%=  User.find(order.user_id).first_name %> </p>
+                <%= image_tag (order.user.photo_url), class: "avatar-large" %>
+                <p><%=  order.user.first_name %> </p>
                 </div>
               <% end %>
             </div>
           </div>
-          <%= link_to "Je paye", "#", class:"btn btn-danger", id:"btn-payer" %>
+          <%= link_to "Je paye", new_reservation_order_path(@reservation), class:"btn btn-danger", id:"btn-payer" %>
         </div>
       </div>
     </div>

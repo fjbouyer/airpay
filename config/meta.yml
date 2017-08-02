@@ -1,0 +1,5 @@
+meta_product_name: "AirPay"
+meta_title: "AirPay - Gagnez du temps, payez avant la caisse!"
+meta_description: "Airpay vous permet de payer votre réservation sur votre mobile sans avoir à passer en caisse. Fini les files d'attentes interminables!"
+meta_image: "cover.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@Le_SportingClub"   # required for Twitter Cards
