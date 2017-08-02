@@ -29,11 +29,10 @@ ActiveRecord::Schema.define(version: 20170801153241) do
     t.integer  "product_id"
     t.integer  "order_id"
     t.integer  "quantity"
-    t.float    "product_price"
-    t.float    "total_price"
-    t.float    "vat_rate"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "product_price_cent_incl_vat"
+    t.float    "product_vat_rate"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["order_id"], name: "index_order_products_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_products_on_product_id", using: :btree
   end
@@ -41,12 +40,19 @@ ActiveRecord::Schema.define(version: 20170801153241) do
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "reservation_id"
+    t.integer  "person_quantity"
+    t.integer  "total_price_cent_incl_vat"
+    t.float    "reservation_vat_rate"
     t.string   "status"
-    t.integer  "quantity"
-    t.float    "vat_rate"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "total_price_incl_vat"
+    t.string   "postal_code"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "cart_snapshot"
+    t.json     "payment"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["reservation_id"], name: "index_orders_on_reservation_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -60,10 +66,11 @@ ActiveRecord::Schema.define(version: 20170801153241) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "product_category_id"
+    t.integer  "price_cent_incl_vat"
     t.float    "vat_rate"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "price_incl_vat"
+    t.string   "picture_path"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
@@ -73,10 +80,10 @@ ActiveRecord::Schema.define(version: 20170801153241) do
     t.date     "date"
     t.datetime "time"
     t.integer  "number_of_hour"
+    t.integer  "price_per_hour_cent_incl_vat"
     t.float    "vat_rate"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "price_per_hour_incl_vat"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["sport_category_id"], name: "index_reservations_on_sport_category_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end

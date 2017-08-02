@@ -37,6 +37,11 @@ $(document).ready(function() {
     product_id = $(this).parent().parent().attr("data-productid");
     updateQuantity(product_id);
   });
+
+  $('#shopping-validate').on('click', '.btn', function() {
+    console.log("Check cart");
+    cartSnapshot();
+  });
 });
 
 function addProductToTable(product_id, product_name, product_price) {
@@ -53,6 +58,7 @@ function addProductToTable(product_id, product_name, product_price) {
     new_product_row.append($("<td>").html("<span class=\"product-total-price\">" + product_price + "</span>"));
     new_product_row.append($("<td>").html("<i class=\"fa fa-trash\" aria-hidden=\"true\"></i>"));
     $("#table-product-list").append(new_product_row);
+    cartSnapshot();
   }
 }
 
@@ -93,6 +99,8 @@ function changeQuantity(product_id, action) {
   // element.find(".product-quantity").parent().html(genQuantityCell(quantity));
   element.find(".product-quantity").val(quantity);
   element.find(".product-total-price").text(total_price);
+
+  cartSnapshot();
 }
 
 function genQuantityCell(quantity) {
@@ -103,6 +111,7 @@ function genQuantityCell(quantity) {
 
 function deleteProductRow(product_id) {
   element = $("#table-product-list").find("[data-productid='" + product_id + "']").remove();
+  cartSnapshot();
 }
 
 function updateQuantity(product_id) {
@@ -118,6 +127,55 @@ function updateQuantity(product_id) {
     element.find(".product-quantity").val(quantity);
     element.find(".product-total-price").text(total_price);
   }
+
+  cartSnapshot();
+}
+
+function cartSnapshot() {
+  // On va recuperer et faire un hash de notre panier
+  var rows = $("#table-product-list tr");
+
+  if(rows.length == 0) {
+    console.log("nothing in here");
+  }
+  else {
+    var cart_snapshot = {};
+    cart_snapshot['items'] = [];
+    cart_snapshot['resa'] = {};
+    cart_snapshot['total_price'] = 0;
+    var current_total_price = 0;
+
+    $.each (rows, function(k, v){
+      var item = {};
+      var resa = {};
+      var data_resid = $(v).attr("data-reservationid");
+
+      if (typeof data_resid !== typeof undefined && data_resid !== false) {
+        resa['reservation_id'] = $(v).attr("data-reservationid");
+        resa['reservation_quantity'] = $(v).find(".reservation-person-number").text();
+        resa['reservation_total_price'] = $(v).find(".reservation-total-price").text();
+        current_total_price += parseInt(resa['reservation_total_price']);
+        cart_snapshot['resa'] = resa;
+      }
+      else {
+        item['product_id'] = $(v).attr("data-productid");
+        item['product_quantity'] = $(v).find(".product-quantity").val();
+        item['product_price'] = $(v).find(".product-price").text();
+        current_total_price += ( item['product_quantity'] * item['product_price'] );
+        cart_snapshot['items'].push(item);
+      }
+    });
+
+    cart_snapshot['total_price'] = current_total_price;
+    updateTotalPrice(current_total_price);
+    console.log(JSON.stringify(cart_snapshot));
+    $("#order_cart_snapshot").val(JSON.stringify(cart_snapshot));
+  }
+
+}
+
+function updateTotalPrice(total_price){
+  $("#total-price").text(total_price);
 }
 
 // Tab logic

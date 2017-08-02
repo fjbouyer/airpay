@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/reservations/find"
 
   devise_for :users
+
   as :user do
     get 'account/profile/edit', to: 'devise/registrations#edit'
     patch 'account/profile', :as => :user_root
