@@ -4,9 +4,9 @@ $(document).ready(function() {
   // When add to cart button pushed
   $(".addToCart").on("click", function(e){
     console.log("Click detected on element in product list");
-    var product_id = $(this).parent().attr("data-productid");
-    var product_name = $(this).parent().find(".product-name").text();
-    var product_price = $(this).parent().find(".product-price").text();
+    var product_id = $(this).parent().parent().attr("data-productid");
+    var product_name = $(this).parent().parent().find(".product-name").text();
+    var product_price = $(this).parent().parent().find(".product-price").text();
     addProductToTable(product_id, product_name, product_price);
   });
 
@@ -53,9 +53,9 @@ function addProductToTable(product_id, product_name, product_price) {
   else {
     var new_product_row = $("<tr>").attr("data-productid", product_id);
     new_product_row.append($("<td>").text(product_name));
-    new_product_row.append($("<td>").html("<span class=\"product-price\">" + product_price + "</span>"));
+    new_product_row.append($("<td>").html("<span class=\"product-price\">" + product_price + "</span>€"));
     new_product_row.append($("<td>").html(genQuantityCell(1)));
-    new_product_row.append($("<td>").html("<span class=\"product-total-price\">" + product_price + "</span>"));
+    new_product_row.append($("<td>").html("<span class=\"product-total-price\">" + product_price + "</span>€"));
     new_product_row.append($("<td>").html("<i class=\"fa fa-trash\" aria-hidden=\"true\"></i>"));
     $("#table-product-list").append(new_product_row);
     cartSnapshot();
@@ -98,7 +98,7 @@ function changeQuantity(product_id, action) {
 
   // element.find(".product-quantity").parent().html(genQuantityCell(quantity));
   element.find(".product-quantity").val(quantity);
-  element.find(".product-total-price").text(total_price);
+  element.find(".product-total-price").text(total_price.toFixed(2));
 
   cartSnapshot();
 }
@@ -125,7 +125,7 @@ function updateQuantity(product_id) {
   else {
     total_price = price*quantity;
     element.find(".product-quantity").val(quantity);
-    element.find(".product-total-price").text(total_price);
+    element.find(".product-total-price").text(total_price.toFixed(2));
   }
 
   cartSnapshot();

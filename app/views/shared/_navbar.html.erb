@@ -18,8 +18,12 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= link_to account_profile_path do %>
-          <%= image_tag current_user.photo_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu" %>
+            <% unless current_user.photo_url.nil? %>
+              <%= image_tag current_user.photo_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu" %>
+            <% else %>
+              <%= image_tag "avatar15.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu" %>
             <% end %>
+          <% end %>
         </div>
       </div>
 
@@ -43,4 +47,3 @@
     </div>
   </div>
 </div>
-
