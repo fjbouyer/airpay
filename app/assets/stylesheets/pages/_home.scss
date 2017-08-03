@@ -133,23 +133,37 @@
 
 .banner-home {
   background-size: cover;
-  height: 80vh;
+  height: 50vh;
 }
 
-.banner-home-content h3 {
-  font-size: 24px;
+.banner-home-content {
+  h3 {
+  font-size: 30px;
   line-height: 27px;
   font-weight: bolder;
   color: white;
   margin-top: 0;
   padding-top: 50px
-}
-
-.banner-home-content p {
+  }
+  p {
   margin-top: 30px;
-  font-size: 17px;
+  font-size: 20px;
+  font-weight: lighter;
   line-height: 20px;
   color: white;
+  }
+}
+
+.right-float {
+  float: right;
+  padding-right:5vw;
+  padding-top: 20px;
+}
+
+.left-float {
+  float: left;
+  padding-left:5vw;
+  padding-top: 20px;
 }
 
 .datepicker {
@@ -202,6 +216,7 @@
   width: 100%;
   z-index: 1000;
   height: 100vh;
+  padding-top: 20px;
 }
 
 .photo-banner-sticky {
@@ -209,7 +224,7 @@
 }
 
 #photo-running {
-  width: 300px;
+  height: 45vh;
 }
 
 #running {
@@ -220,7 +235,7 @@
 }
 
 #photo-tennis {
-  width: 300px;
+  height: 50vh;
   position: absolute;
   right: 50px;
   margin-bottom: 0;
@@ -232,9 +247,10 @@
 }
 
 #photo-volley {
-  width: 300px;
+  height: 50vh;
   position: absolute;
   margin-bottom: 0;
+  padding-top: 5px;
 }
 
 #volley {
@@ -245,7 +261,7 @@
 }
 
 #photo-danse {
-  width: 300px;
+  height: 50vh;
   position: absolute;
   right: 50px;
   margin-bottom: 0;
@@ -257,13 +273,17 @@
 }
 
 #photo-pilates {
-  width: 700px;
+  width: 40vw;
 }
 
 #pilates {
   margin-top:155px;
 }
 
+#btn-pilates {
+  display: flex;
+  justify-content: space-around;
+}
 
 .link-result {
   color:white;
