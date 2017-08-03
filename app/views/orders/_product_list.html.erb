@@ -16,10 +16,10 @@
       <div class="product-category-block cat-content hidden" id="<%= category.name.gsub(/[()\. ]/, '') %>">
         <div class="row">
           <% if array.empty? %>
-            <p>Pas de produits dans cette catgorie</p>
+            <p class="no-category">Pas de produits dans cette catgorie</p>
           <% else %>
             <% array.each do |product| %>
-              <div class="col-xs-3 col-sm-2">
+              <div class="col-xs-4 col-sm-3">
                 <div class="product" data-productId="<%= product.id %>">
                   <h3><span class="product-name"><%= product.name %></span></h3>
                   <% unless product.picture_path.nil? %>

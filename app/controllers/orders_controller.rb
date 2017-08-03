@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
                                   #{@order.reservation.number_of_hour} heures -
                                   Pour <span class=\"reservation-person-number\">1</span> personne."
       @reservation_price_per_person = @order.reservation.number_of_hour * @order.reservation.price_per_hour_incl_vat
-      @title = "Réservation #{@reservation.id} - #{@reservation.sport_category.name} le #{@reservation.time}"
+      @title = "Réservation #{@reservation.id} - Paiement"
 
     end
   end
