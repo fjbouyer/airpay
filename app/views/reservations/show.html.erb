@@ -27,15 +27,7 @@
             <h4><%= @reservation.price_per_hour_incl_vat %> € / heure</h4>
           </div>
           <div id="reservation-card-left-body-picto">
-            <% if @reservation.sport_category.name == "Foot5" %>
-              <%= image_tag "foot-crop.png" %>
-            <% elsif @reservation.sport_category.name == "Badminton" %>
-              <%= image_tag "bad.png" %>
-            <% elsif @reservation.sport_category.name == "Padel" %>
-              <%= image_tag "padel.png" %>
-            <% elsif @reservation.sport_category.name == "Squash" %>
-              <%= image_tag "squash.png" %>
-            <% end %>
+              <%= image_tag @picto %>
           </div>
         </div>
       </div>
