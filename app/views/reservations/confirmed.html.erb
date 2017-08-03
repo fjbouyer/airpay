@@ -47,9 +47,9 @@
               <div class="flex-info-paiement">
                 <h2>Récapitulatif de paiement CB</h2>
                 <p>Identifiant commerçant: <span>003506</span></p>
-                <p>Montant: <span>9,00€</span></p>
-                <p>N° de transaction: <span>0123456789</span></p>
-                <p>Date / Heure: <span><%= Time.now %></span></p>
+                <p>Montant: <span><%= humanized_money(JSON.parse(@reservation.orders.last.payment)["amount"]/100) %> </span></p>
+                <p>N° de transaction: <span><%= JSON.parse(@reservation.orders.last.payment)["id"] %></span></p>
+                <p>Date / Heure: <span><%= @reservation.orders.last.created_at %></span></p>
                 <p>N° de carte: <span>**** **** **** 4242</span></p>
               </div>
               <div class="flex-icon-cb">
@@ -68,11 +68,10 @@
           <div class="photo-avatar-logo">
             <div class="last-avatar" id="photo-align-left-confirmed">
               <% @orders.each do |order|  %>
-              <div class="avatar-name-flex">
+              <div class="avatar-name-flex" id="<%= 'emphasize' if order == @orders.last %>">
                 <%= image_tag (order.user.photo_url), class: "avatar-large" %>
                 <p><%=  order.user.first_name %> </p>
               </div>
-              <p id="padded"></p>
               <% end %>
             </div>
           </div>
