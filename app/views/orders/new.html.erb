@@ -1,35 +1,41 @@
 <% content_for :title, "Airpay - Shopping" %>
 
-<% if @reservation.nil? %>
-  <p class="text-center">Désolé, nous n'avons pas trouvé de reservation.</p>
-<% else %>
-  <h2 class="text-center shopping-title"><%= @title %></h2>
+<div class="banner-show" style="background-image: url(<%= image_path("foot.jpg") %>);">
+      <% if @reservation.nil? %>
+        <p class="text-center">Désolé, nous n'avons pas trouvé de reservation.</p>
+      <% else %>
+        <!-- <h2 class="text-center shopping-title"><%= @title %></h2> -->
 
-  <div class="container" id="app">
+        <div class="container" id="app">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-    <div class="product-list">
-      <%= render 'orders/product_list' %>
-    </div>
+          <div class="product-list">
+            <%= render 'orders/product_list' %>
+          </div>
 
-    <div class="shopping-cart">
-      <%= render 'orders/shopping_table' %>
-    </div>
+          <div class="shopping-cart cart-border-shadow">
+            <%= render 'orders/shopping_table' %>
 
-    <div id="shopping-validate">
-      <div class="row">
-        <div id="recap-product-list" class="col-sm-3 col-sm-offset-9 col-xs-6 col-xs-offset-6 text-right">
-          <p>Prix total : <span id="total-price"><%= humanized_money(@reservation_price_per_person) %></span>€</p>
+            <div id="shopping-validate">
+              <div class="row">
+                <div id="recap-product-list" class="col-sm-3 col-sm-offset-9 col-xs-6 col-xs-offset-6 text-right">
+                  <p>Prix total : <span id="total-price"><%= humanized_money(@reservation_price_per_person) %></span>€</p>
+                </div>
+                <div class="col-sm-12 col-xs-12 text-right">
+                  <%= simple_form_for [@reservation, @order] do |f| %>
+                    <%= f.input :cart_snapshot, as: :hidden %>
+                    <%= f.button :submit, "Confirmez votre panier", class: "btn btn-danger" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="col-sm-3 col-sm-offset-9 col-xs-6 col-xs-offset-6 text-right">
-          <%= simple_form_for [@reservation, @order] do |f| %>
-            <%= f.input :cart_snapshot, as: :hidden %>
-            <%= f.button :submit, class: "btn btn-danger", value: "Confirmez votre panier" %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
-
   </div>
-<% end %>
+</div>
 
 <%= javascript_include_tag 'cart' %>

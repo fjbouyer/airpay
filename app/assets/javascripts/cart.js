@@ -43,7 +43,7 @@ $(document).ready(function() {
     cartSnapshot();
   });
 
-  $(".cat:first-child").addClass("cat-active");
+  $(".cat:first").addClass("cat-active");
   $(".cat-content:first-child").removeClass("hidden");
 });
 
