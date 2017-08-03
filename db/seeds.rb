@@ -36,7 +36,7 @@ bad_category = SportCategory.create!(name: "Badminton", minimum_players: 2)
 
 puts "Start ProductCategory"
 boisson_category = ProductCategory.create!(name: "Boissons")
-loc_category = ProductCategory.create!(name: "Location de matériel")
+loc_category = ProductCategory.create!(name: "Loc. de matériel")
 vente_category = ProductCategory.create!(name: "Vente de matériel")
 food_category = ProductCategory.create!(name: "Petite faim")
 
@@ -158,7 +158,7 @@ puts "Start Reservation"
 reservation_1 = Reservation.create!(sport_category: foot_category,
                                     creator: jo,
                                     date: Date.new(2017,8,4),
-                                    time: DateTime.new(2017,8,4, 19, 00),
+                                    time: DateTime.new(2017,8,4, 13, 30),
                                     number_of_hour: 2,
                                     price_per_hour_incl_vat_cents: 800,
                                     vat_rate: 0.2)
