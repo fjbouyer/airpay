@@ -82,4 +82,6 @@ countdown.innerHTML = jours + ' ' + mot_jour + ' ' + heures + ' ' + mot_heure + 
 actualisation = setTimeout("countdown();", 1000);
 }
 
-countdown();
+if ($('#countdown').length > 0) {
+  countdown();
+}

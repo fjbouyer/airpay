@@ -1,3 +1,7 @@
+.container-video {
+  height: 100vh;
+}
+
 .homepage-hero-module {
     border-right: none;
     border-left: none;
@@ -16,7 +20,7 @@
     position: relative;
     bottom: 0%;
     left: 0%;
-    height: 100vh;
+    height: 100%;
     min-height: 100%;
     width: 100%;
     overflow: hidden;

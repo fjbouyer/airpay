@@ -1,5 +1,5 @@
 //jQuery is required to run this code
-$( document ).ready(function() {
+$(document).ready(function() {
 
     scaleVideoContainer();
 
